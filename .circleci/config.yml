@@ -1,0 +1,72 @@
+version: 2 # use CircleCI 2.0
+jobs: # a collection of steps
+  build:
+    working_directory: ~/vuttr-api # directory where steps will run
+    docker: # run the steps with Docker
+      - image: circleci/ruby:2.6-rc-node # ...with this image as the primary container; this is where all `steps` will run
+        environment: # environment variables for primary container
+          BUNDLE_JOBS: 3
+          BUNDLER_VERSION: 2.0.1
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: vuttr-api-user
+          PGPASSWORD: echo $VUTTR_API_DATABASE_PASSWORD
+          RAILS_ENV: test
+
+      # Service container image available at `host: localhost`
+
+      - image: circleci/postgres:9.6.2-alpine
+        environment:
+          POSTGRES_USER: vuttr-api-user
+          POSTGRES_PASSWORD: echo $VUTTR_API_DATABASE_PASSWORD
+          POSTGRES_DB: vuttr-api_test
+
+    steps: # a collection of executable commands
+      - checkout # special step to check out source code to working directory
+
+      - run:
+          name: Configure Bundler
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+
+      # Restore bundle cache
+      - restore_cache:
+          keys:
+            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v2-
+
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+
+      # Store bundle cache
+      - save_cache:
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Run RSpec
+          command: |
+            bundle exec rspec
+
+      # Save test results for timing analysis
+      - store_test_results:
+          path: ~/vuttr-api/results
+      - store_artifacts:
+          path: ~/vuttr-api/results
+workflows:
+   version: 2
+
+   all_commits:
+       jobs:
+           - build:
+               filters:
+                   branches:
+                       ignore:
+                           - developer
+                           - test
+      # See https://circleci.com/docs/2.0/deployment-integrations/ for example deploy configs
