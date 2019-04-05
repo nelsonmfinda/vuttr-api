@@ -34,12 +34,6 @@ gem 'rack-attack', '~> 5.4', '>= 5.4.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # A library for setting up Ruby objects as test data
-  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.1'
-  # Makes http fun! Also, makes consuming restful web services dead easy
-  gem 'httparty', '~> 0.16.4'
-  # Validate the JSON returned by your Rails JSON APIs
-  gem 'json_matchers', '~> 0.10.0'
   # RSpec testing framework to Ruby on Rails
   gem 'rspec-rails', '~> 3.8'
   # Autogeneration of documentation from request specs
@@ -48,9 +42,23 @@ group :development, :test do
   gem 'rubygene', '~> 0.4.0'
 end
 
-group :development do
-	# A library for generating fake data such as names, addresses, and phone numbers
+group :test do
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners that test common Rails functionality
+  gem 'shoulda-matchers'
+  # A library for setting up Ruby objects as test data
+  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.1'
+  # A library for generating fake data such as names, addresses, and phone numbers
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+  # Makes http fun! Also, makes consuming restful web services dead easy
+  gem 'httparty', '~> 0.16.4'
+  # Validate the JSON returned by your Rails JSON APIs
+  gem 'json_matchers', '~> 0.10.0'
+  gem 'rails-controller-testing'
+end
+
+group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
