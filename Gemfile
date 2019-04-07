@@ -36,8 +36,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # RSpec testing framework to Ruby on Rails
   gem 'rspec-rails', '~> 3.8'
-  # Autogeneration of documentation from request specs
-  # gem 'rspec_api_blueprint', '~> 0.0.8'
+  # Use your Rspec tests to build your API documentation
+  # gem 'rspec-api-blueprint-formatter', '~> 0.2.2'
   # A simple gem to generate all files needed in a project Mobile, Web and Api for Testing Automation
   gem 'rubygene', '~> 0.4.0'
 end
