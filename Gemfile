@@ -40,6 +40,12 @@ group :development, :test do
   # gem 'rspec-api-blueprint-formatter', '~> 0.2.2'
   # A simple gem to generate all files needed in a project Mobile, Web and Api for Testing Automation
   gem 'rubygene', '~> 0.4.0'
+  # Guard is a command line tool to easily handle events on file system modifications
+  # gem 'guard', '~> 2.14'
+  # Guard::RSpec automatically run your specs
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3', require: false
+  # The instafailing RSpec progress bar formatter
+  gem 'fuubar', '~> 2.0'
 end
 
 group :test do
