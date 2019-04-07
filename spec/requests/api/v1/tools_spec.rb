@@ -14,7 +14,7 @@ RSpec.describe "VUTTR API", type: :request do
       expect(json.size).to eq(30)
     end
 
-    it 'return status code 200' do
+    it 'has status code 200' do
       expect(response).to have_http_status(200)
     end
   end
@@ -29,7 +29,7 @@ RSpec.describe "VUTTR API", type: :request do
         expect(json['id']).to eq(tool_id)
       end
 
-      it 'return status code 200' do
+      it 'has status code 200' do
         expect(response).to have_http_status(200)
       end
     end
@@ -37,7 +37,7 @@ RSpec.describe "VUTTR API", type: :request do
     context 'when the tool does not exists' do
       let(:tool_id) { 120 }
 
-      it 'return status code 404' do
+      it 'has status code 404' do
         expect(response).to have_http_status(404)
       end
 
@@ -49,15 +49,30 @@ RSpec.describe "VUTTR API", type: :request do
 
   describe 'GET /api/v1/tools?tag={name}' do
 
-    before { get '/api/v1/tools?tag=node' }
+    context 'when tag is found' do
 
-    context 'when searching a tool by tag ' do
+      before { get '/api/v1/tools?tag=node' }
+
       it 'returns tools tagged with this tag' do
         expect(json).not_to be_empty
+        json.collect { |content| expect(content['tags']).to include("node")  }
+      end
 
-        json.each do |content|
-          expect(content['tags']).to include("node")
-        end
+      it 'responds with status code 200' do
+        expect(response).to have_http_status(200)
+      end
+    end
+
+    context 'when tag is not found' do
+
+      before { get '/api/v1/tools?tag=bla' }
+
+      it 'responds with status code 404' do
+        expect(response).to have_http_status(404)
+      end
+
+      it 'body response is empty' do
+        expect(json).to be_empty
       end
     end
   end
@@ -80,21 +95,25 @@ RSpec.describe "VUTTR API", type: :request do
         expect(json['title']).to eq('notebook')
       end
 
-      it 'return status code 201' do
+      it 'has status code 201' do
         expect(response).to have_http_status(201)
+      end
+
+      it 'has a content type JSON' do
+        expect(response.content_type).to eq("application/json")
       end
     end
 
     context 'when the request is invalid' do
       before { post '/api/v1/tools', params: { title: 'Lorem' } }
 
-      it 'returns status code 422' do
-        expect(response).to have_http_status(422)
-      end
-
       it 'returns a validation failure message' do
         expect(response.body)
           .to match(/Validation failed: Link can't be blank, Description can't be blank, Tags can't be blank/)
+      end
+
+      it 'has status code 422' do
+        expect(response).to have_http_status(422)
       end
     end
   end
@@ -106,12 +125,22 @@ RSpec.describe "VUTTR API", type: :request do
     context 'when the record exists' do
       before { put "/api/v1/tools/#{tool_id}", params: valid_attributes }
 
-      it 'updates the record' do
+      it 'has status code 204 if updates the record' do
         expect(response.body).to be_empty
+        expect(response).to have_http_status(204)
+      end
+    end
+
+    context 'when the tool does not exists' do
+      let(:tool_id) { 120 }
+      before { put "/api/v1/tools/#{tool_id}", params: valid_attributes }
+
+      it 'has status code 404' do
+        expect(response).to have_http_status(404)
       end
 
-      it 'returns status code 204' do
-        expect(response).to have_http_status(204)
+      it 'return a not found message' do
+        expect(response.body).to match(/Couldn't find Tool with 'id'=#{tool_id}/)
       end
     end
   end
@@ -120,8 +149,26 @@ RSpec.describe "VUTTR API", type: :request do
 
     before { delete "/api/v1/tools/#{tool_id}" }
 
-    it 'returns status code 204' do
-      expect(response).to have_http_status(204)
+    context 'when the tool exists' do
+      it 'has status code 204 if delete a tool' do
+        expect(response).to have_http_status(204)
+      end
+
+      it 'body response is empty' do
+        expect(response.body).to be_empty
+      end
+    end
+
+    context 'when the tool does not exists' do
+      let(:tool_id) { 120 }
+
+      it 'has status code 404' do
+        expect(response).to have_http_status(404)
+      end
+
+      it 'return a not found message' do
+        expect(response.body).to match(/Couldn't find Tool with 'id'=#{tool_id}/)
+      end
     end
   end
 end
