@@ -7,10 +7,10 @@ API para a aplicação VUTTR (Very Useful Tools to Remember). Uma simples API pa
 
 * Requisitos
 
-  1.Ruby ~> 2.6.0 (Recomendo [rbenv](https://github.com/sstephenson/rbenv))
-  2.Docker => 18.09.4
-  3.PostgreSQL ~> 9.5.16
-  4.Bundler => 2.0.1 (`gem install bundler` ou `bundle update --bundler`)
+  1. Ruby ~> 2.6.0 (Recomendo [rbenv](https://github.com/sstephenson/rbenv))
+  2. Docker => 18.09.4
+  3. PostgreSQL ~> 9.5.16
+  4. Bundler => 2.0.1 (`gem install bundler` ou `bundle update --bundler`)
 
 ## Como executar
 
