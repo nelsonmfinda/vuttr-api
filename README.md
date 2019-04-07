@@ -1,7 +1,7 @@
 # VUTTR API
 
 [![CircleCI](https://circleci.com/gh/nelsonmfinda/vuttr-api.svg?style=svg)](https://circleci.com/gh/nelsonmfinda/vuttr-api)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/d7d52a50d1e28dcb84e8/maintainability)](https://codeclimate.com/github/nelsonmfinda/vuttr-api/maintainability)
 
 API para a aplicação VUTTR (Very Useful Tools to Remember). Uma simples API para gerenciar ferramentas.
 
