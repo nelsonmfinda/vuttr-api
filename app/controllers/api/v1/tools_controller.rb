@@ -4,8 +4,12 @@ class Api::V1::ToolsController < ApplicationController
   # GET /tools?tag=
   def index
     if(params.has_key?(:tag))
-      @tools = Tool.where("? = ANY (tags)", params[:tag])
-      json_response(@tools)
+      if !tool_search.empty?
+        @tools = tool_search
+        json_response(@tools)
+      else
+        json_response([], :not_found)
+      end
     else
       @tools = Tool.all
       json_response(@tools)
@@ -39,6 +43,10 @@ class Api::V1::ToolsController < ApplicationController
 
   def tool_params
     params.permit(:title, :description, :link, :tags => [])
+  end
+
+  def tool_search
+    Tool.where("? = ANY (tags)", params[:tag])
   end
 
   def set_tool
