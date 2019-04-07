@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "VUTTR API", type: :request do
-  # initialize test data
+
   let!(:tools) { create_list(:tool, 30) }
   let(:tool_id) { tools.first.id }
 

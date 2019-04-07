@@ -5,23 +5,166 @@
 
 API para a aplicação VUTTR (Very Useful Tools to Remember). Uma simples API para gerenciar ferramentas.
 
+* Requisitos
 
-Things you may want to cover:
+  1.Ruby ~> 2.6.0 (Recomendo [rbenv](https://github.com/sstephenson/rbenv))
+  2.Docker => 18.09.4
+  3.PostgreSQL ~> 9.5.16
+  4.Bundler => 2.0.1 (`gem install bundler` ou `bundle update --bundler`)
 
-* Ruby version
+## Como executar
 
-* System dependencies
+Instale as dependências do project
 
-* Configuration
+```sh
+  bundle install
+```
 
-* Database creation
+Crie e inicialize a base de dados
 
-* Database initialization
+```sh
+    rails db:create db:migrate
+```
 
-* How to run the test suite
+Execute os testes
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+    bundle exec rspec
+```
 
-* Deployment instructions
+Rode o projecto em sua máquina
 
-* ...
+```sh
+    rails server
+```
+
+Em seguida, acesse `localhost:3000/api/v1`
+
+## Rotas
+Todas as requisições de POST para esta API devem conter o header `Content-Type: application/json`.
+Esta API contém as seguintes rotas:
+
+* `GET /tools` : lista as ferramentas cadastradas
+* `POST /tools` : cria uma nova ferramenta
+* `DELETE /tools/:id` : apaga a ferramenta com ID :id
+
+Para filtrar as ferramentas em `GET /tools`, é possível:
+* fazer uma busca global utilizando a query string `?q=:busca`;
+* fazer uma busca por tags individuais utilizando a query string `?tags_like=:busca`.
+
+## Exemplos
+
+### GET /tools
+
+Requisição:
+```javascript
+GET /tools
+```
+Resposta:
+```javascript
+[
+    {
+        id: 1,
+        title: "Notion",
+        link: "https://notion.so",
+        description: "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized. ",
+        tags: [
+            "organization",
+            "planning",
+            "collaboration",
+            "writing",
+            "calendar"
+        ]
+    },
+    {
+        id: 2,
+        title: "json-server",
+        link: "https://github.com/typicode/json-server",
+        description: "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
+        tags: [
+            "api",
+            "json",
+            "schema",
+            "node",
+            "github",
+            "rest"
+        ]
+    },
+    {
+        id: 3,
+        title: "fastify",
+        link: "https://www.fastify.io/",
+        description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
+        tags: [
+            "web",
+            "framework",
+            "node",
+            "http2",
+            "https",
+            "localhost"
+        ]
+    }
+]
+```
+
+### GET /tools?q=:busca
+
+Requisição:
+```javascript
+GET /tools?q=notion
+```
+Resposta:
+```javascript
+[
+    {
+        id: 1,
+        title: "Notion",
+        link: "https://notion.so",
+        description: "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized. ",
+        tags: [
+            "organization",
+            "planning",
+            "collaboration",
+            "writing",
+            "calendar"
+        ]
+    }
+]
+```
+
+### POST /tools
+
+Requisição:
+```javascript
+// POST /tools
+// Content-Type: application/json
+{
+    "title": "hotel",
+    "link": "https://github.com/typicode/hotel",
+    "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
+    "tags":["node", "organizing", "webapps", "domain", "developer", "https", "proxy"]
+}
+```
+
+Resposta:
+```javascript
+{
+    "title": "hotel",
+    "link": "https://github.com/typicode/hotel",
+    "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
+    "tags":["node", "organizing", "webapps", "domain", "developer", "https", "proxy"],
+    "id":5
+}
+```
+
+### DELETE /tools/:id
+Requisição:
+```javascript
+DELETE /tools/5
+```
+
+Resposta:
+```javascript
+// Status: 200 OK
+{}
+```
