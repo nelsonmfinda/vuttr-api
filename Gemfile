@@ -14,7 +14,7 @@ gem 'puma', '~> 3.11'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -73,6 +73,8 @@ end
 
 # Centralization of locale data collection for Ruby on Rails.
 # gem 'rails-i18n'
+# A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard
+gem 'jwt', '~> 1.5', '>= 1.5.4'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
