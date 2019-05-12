@@ -2,12 +2,15 @@ require 'rails_helper'
 
 RSpec.describe "VUTTR API", type: :request do
 
-  let!(:tools) { create_list(:tool, 30) }
+  let(:user) { create(:user) }
+  let!(:tools) { create_list(:tool, 30, created_by: user.id) }
   let(:tool_id) { tools.first.id }
+
+  let(:headers) { valid_headers }
 
   describe "GET /api/v1/tools" do
 
-    before { get '/api/v1/tools' }
+    before { get '/api/v1/tools', params: {}, headers: headers }
 
     it "list all registered tools" do
       expect(json).not_to be_empty
@@ -21,7 +24,7 @@ RSpec.describe "VUTTR API", type: :request do
 
   describe 'GET /api/v1/tools/:id' do
 
-    before { get "/api/v1/tools/#{tool_id}" }
+    before { get "/api/v1/tools/#{tool_id}", params: {}, headers: headers }
 
     context 'when the tool exists' do
       it 'return the tool' do
@@ -51,7 +54,7 @@ RSpec.describe "VUTTR API", type: :request do
 
     context 'when tag is found' do
 
-      before { get '/api/v1/tools?tag=node' }
+      before { get '/api/v1/tools?tag=node', headers: headers }
 
       it 'returns tools tagged with this tag' do
         expect(json).not_to be_empty
@@ -65,7 +68,7 @@ RSpec.describe "VUTTR API", type: :request do
 
     context 'when tag is not found' do
 
-      before { get '/api/v1/tools?tag=bla' }
+      before { get '/api/v1/tools?tag=bla', headers: headers }
 
       it 'responds with status code 404' do
         expect(response).to have_http_status(404)
@@ -79,18 +82,18 @@ RSpec.describe "VUTTR API", type: :request do
 
   describe 'POST /api/v1/tools' do
 
-    let(:valid_attributes) {
+    let(:valid_attributes) do
       {
         title: 'notebook', link: 'https://example.com',
         description: 'Local app manager. Start apps within your browser, developer tool with local
                         .localhost domain and https out of the box.',
         tags: ['electronic', 'organizing', 'computer', 'developer', 'node'],
-        created_by: 1
-      }
-    }
+        created_by: user.id.to_s
+      }.to_json
+    end
 
     context 'when the request is valid' do
-      before { post '/api/v1/tools', params: valid_attributes }
+      before { post '/api/v1/tools', params: valid_attributes, headers: headers }
 
       it 'creates a tool' do
         expect(json['title']).to eq('notebook')
@@ -106,7 +109,15 @@ RSpec.describe "VUTTR API", type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/api/v1/tools', params: { title: 'Lorem' } }
+
+      let(:invalid_attributes) do
+        {
+          title: 'notebook',
+          created_by: user.id.to_s
+        }.to_json
+      end
+
+      before { post '/api/v1/tools', params: invalid_attributes, headers: headers }
 
       it 'returns a validation failure message' do
         expect(response.body)
@@ -121,10 +132,10 @@ RSpec.describe "VUTTR API", type: :request do
 
   describe 'PUT /api/v1/tools/:id' do
 
-    let(:valid_attributes) { { title: 'Lorem' } }
+    let(:valid_attributes) { { title: 'Lorem' }.to_json }
 
     context 'when the record exists' do
-      before { put "/api/v1/tools/#{tool_id}", params: valid_attributes }
+      before { put "/api/v1/tools/#{tool_id}", params: valid_attributes, headers: headers }
 
       it 'has status code 204 if updates the record' do
         expect(response.body).to be_empty
@@ -134,7 +145,7 @@ RSpec.describe "VUTTR API", type: :request do
 
     context 'when the tool does not exists' do
       let(:tool_id) { 120 }
-      before { put "/api/v1/tools/#{tool_id}", params: valid_attributes }
+      before { put "/api/v1/tools/#{tool_id}", params: valid_attributes.to_json, headers: headers }
 
       it 'has status code 404' do
         expect(response).to have_http_status(404)
@@ -148,7 +159,7 @@ RSpec.describe "VUTTR API", type: :request do
 
   describe 'DELETE /api/v1/tools/:id' do
 
-    before { delete "/api/v1/tools/#{tool_id}" }
+    before { delete "/api/v1/tools/#{tool_id}", params: {}, headers: headers }
 
     context 'when the tool exists' do
       it 'has status code 204 if delete a tool' do
