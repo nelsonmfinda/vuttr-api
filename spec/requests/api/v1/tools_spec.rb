@@ -84,7 +84,8 @@ RSpec.describe "VUTTR API", type: :request do
         title: 'notebook', link: 'https://example.com',
         description: 'Local app manager. Start apps within your browser, developer tool with local
                         .localhost domain and https out of the box.',
-        tags: ['electronic', 'organizing', 'computer', 'developer', 'node']
+        tags: ['electronic', 'organizing', 'computer', 'developer', 'node'],
+        created_by: 1
       }
     }
 

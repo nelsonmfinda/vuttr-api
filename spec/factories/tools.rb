@@ -19,5 +19,6 @@ FactoryBot.define do
         "proxy"
       ].sample(5)
     }
+    created_by { 1 }
   end
 end

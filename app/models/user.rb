@@ -5,6 +5,6 @@ class User < ApplicationRecord
 
   validates_presence_of :name, :email, :password_digest
   validates_uniqueness_of :email
-  validates :name, length: { maximum: 15 }
+  validates :name, length: { maximum: 45 }
   validates :email, length: { maximum: 45 }
 end

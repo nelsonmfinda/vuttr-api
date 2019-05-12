@@ -58,10 +58,10 @@ group :test do
   # A library for generating fake data such as names, addresses, and phone numbers
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   # Makes http fun! Also, makes consuming restful web services dead easy
-  gem 'httparty', '~> 0.16.4'
+  # gem 'httparty', '~> 0.16.4'
   # Validate the JSON returned by your Rails JSON APIs
-  gem 'json_matchers', '~> 0.10.0'
-  gem 'rails-controller-testing'
+  # gem 'json_matchers', '~> 0.10.0'
+  # gem 'rails-controller-testing'
 end
 
 group :development do
@@ -72,7 +72,7 @@ group :development do
 end
 
 # Centralization of locale data collection for Ruby on Rails.
-# gem 'rails-i18n'
+gem 'rails-i18n'
 # A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard
 gem 'jwt', '~> 1.5', '>= 1.5.4'
 
