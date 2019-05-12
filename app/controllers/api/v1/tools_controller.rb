@@ -42,7 +42,7 @@ class Api::V1::ToolsController < ApplicationController
   private
 
   def tool_params
-    params.permit(:title, :description, :link, :tags => [])
+    params.permit(:title, :description, :link, :created_by, :tags => [])
   end
 
   def tool_search
