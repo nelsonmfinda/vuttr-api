@@ -11,14 +11,14 @@ class Api::V1::ToolsController < ApplicationController
         json_response([], :not_found)
       end
     else
-      @tools = Tool.all
+      @tools = current_user.tools.all
       json_response(@tools)
     end
   end
 
   # POST /tools
   def create
-    @tool = Tool.create!(tool_params)
+    @tool = current_user.tools.create!(tool_params)
     json_response(@tool, :created)
   end
 
@@ -46,7 +46,7 @@ class Api::V1::ToolsController < ApplicationController
   end
 
   def tool_search
-    Tool.where("? = ANY (tags)", params[:tag])
+    current_user.tools.where("? = ANY (tags)", params[:tag])
   end
 
   def set_tool
