@@ -5,13 +5,13 @@ class Api::V1::ToolsController < ApplicationController
   def index
     if(params.has_key?(:tag))
       if !tool_search.empty?
-        @tools = tool_search
+        @tools = tool_search.paginate(page: params[:page], per_page: 10)
         json_response(@tools)
       else
         json_response([], :not_found)
       end
     else
-      @tools = current_user.tools.all
+      @tools = current_user.tools.paginate(page: params[:page], per_page: 10)
       json_response(@tools)
     end
   end
