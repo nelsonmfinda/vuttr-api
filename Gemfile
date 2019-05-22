@@ -40,12 +40,10 @@ group :development, :test do
   # gem 'rspec-api-blueprint-formatter', '~> 0.2.2'
   # A simple gem to generate all files needed in a project Mobile, Web and Api for Testing Automation
   gem 'rubygene', '~> 0.4.0'
-  # Guard is a command line tool to easily handle events on file system modifications
-  # gem 'guard', '~> 2.14'
-  # Guard::RSpec automatically run your specs
-  gem 'guard-rspec', '~> 4.7', '>= 4.7.3', require: false
   # The instafailing RSpec progress bar formatter
   gem 'fuubar', '~> 2.0'
+  # A library for generating fake data such as names, addresses, and phone numbers
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :test do
@@ -55,13 +53,13 @@ group :test do
   gem 'shoulda-matchers'
   # A library for setting up Ruby objects as test data
   gem 'factory_bot_rails', '~> 5.0', '>= 5.0.1'
-  # A library for generating fake data such as names, addresses, and phone numbers
-  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   # Makes http fun! Also, makes consuming restful web services dead easy
   # gem 'httparty', '~> 0.16.4'
   # Validate the JSON returned by your Rails JSON APIs
   # gem 'json_matchers', '~> 0.10.0'
   # gem 'rails-controller-testing'
+  # Automatically generate API documentation from RSpec
+  gem 'dox', require: false
 end
 
 group :development do
@@ -75,6 +73,11 @@ end
 gem 'rails-i18n'
 # A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard
 gem 'jwt', '~> 1.5', '>= 1.5.4'
+# Making it easy to serialize models for client-side use
+gem 'active_model_serializers', '~> 0.10.9'
+# will_paginate provides a simple API for performing paginated queries with Active Record,
+# DataMapper and Sequel, and includes helpers for rendering pagination links
+gem 'will_paginate', '~> 3.1', '>= 3.1.7'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

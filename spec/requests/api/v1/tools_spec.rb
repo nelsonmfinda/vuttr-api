@@ -2,19 +2,25 @@ require 'rails_helper'
 
 RSpec.describe "VUTTR API", type: :request do
 
+  # include resource module
+  include Docs::V1::Tools::Api
+
   let(:user) { create(:user) }
-  let!(:tools) { create_list(:tool, 30, created_by: user.id) }
+  let!(:tools) { create_list(:tool, 10, created_by: user.id) }
   let(:tool_id) { tools.first.id }
 
   let(:headers) { valid_headers }
 
   describe "GET /api/v1/tools" do
 
+    # include action module
+    include Docs::V1::Tools::Index
+
     before { get '/api/v1/tools', params: {}, headers: headers }
 
-    it "list all registered tools" do
+    it "returns a list of tools", :dox do
       expect(json).not_to be_empty
-      expect(json.size).to eq(30)
+      expect(json.size).to eq(10)
     end
 
     it 'has status code 200' do
@@ -24,10 +30,13 @@ RSpec.describe "VUTTR API", type: :request do
 
   describe 'GET /api/v1/tools/:id' do
 
+    # include action module
+    include Docs::V1::Tools::Index
+
     before { get "/api/v1/tools/#{tool_id}", params: {}, headers: headers }
 
     context 'when the tool exists' do
-      it 'return the tool' do
+      it 'return the tool', :dox do
         expect(json).not_to be_empty
         expect(json['id']).to eq(tool_id)
       end
@@ -37,7 +46,7 @@ RSpec.describe "VUTTR API", type: :request do
       end
     end
 
-    context 'when the tool does not exists' do
+    context 'when the tool does not exists', :dox do
       let(:tool_id) { 120 }
 
       it 'has status code 404' do
