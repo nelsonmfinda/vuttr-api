@@ -23,7 +23,7 @@ Instale as dependências do project
 Crie e inicialize a base de dados
 
 ```sh
-    rails db:create db:migrate
+    bundle exec rails db:create db:migrate db:seed db:test:prepare
 ```
 
 Execute os testes
@@ -35,7 +35,7 @@ Execute os testes
 Rode o projecto em sua máquina
 
 ```sh
-    rails server
+    bundle exec rails s
 ```
 
 Em seguida, acesse `localhost:3000/api/v1`
@@ -44,9 +44,12 @@ Em seguida, acesse `localhost:3000/api/v1`
 Todas as requisições de POST para esta API devem conter o header `Content-Type: application/json`.
 Esta API contém as seguintes rotas:
 
+* `POST /auth/login` : cria uma nova sessão
+* `POST /signup` : destrói uma sessão
 * `GET /tools` : lista as ferramentas cadastradas
+* `GET /tools/{:id}` : lista uma ferramenta através do seu _:id_ 
 * `POST /tools` : cria uma nova ferramenta
-* `DELETE /tools/:id` : apaga a ferramenta com ID :id
+* `DELETE /tools/:id` : apaga a ferramenta com  o _:id_ passado por parâmetro
 
 Para filtrar as ferramentas em `GET /tools`, é possível:
 * fazer uma busca global utilizando a query string `?q=:busca`;
