@@ -78,4 +78,10 @@ RSpec.configure do |config|
 
   config.include RequestSpecHelper, type: :request
   config.include ControllerSpecHelper
+
+  Dox.configure do |config|
+    config.header_file_path = Rails.root.join('spec/docs/api/v1/descriptions/header.md')
+    config.desc_folder_path = Rails.root.join('spec/docs/api/v1/descriptions')
+    config.headers_whitelist = ['Accept', 'Bearer-Token']
+  end
 end
