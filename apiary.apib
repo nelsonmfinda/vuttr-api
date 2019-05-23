@@ -1,0 +1,530 @@
+# VUTTR API
+
+Uma API para a aplicação VUTTR (Very Useful Tools to Remember), para gerenciar ferramentas,
+onde um usuário logado pode listar/criar/editar/excluir ferramentas.
+
+# Group Ferramentas
+
+
+## Ferramentas [/tools]
+Endpoint para criar/editar/apagar/listar/filtrar ferramentas
+
+
+### Listar todas ferramentas cadastradas [GET /api/v1/tools]
+
+
++ Request returns tool collections
+**GET**&nbsp;&nbsp;`/api/v1/tools`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            [
+              {
+                "id": 5578,
+                "title": "ut",
+                "link": "http://mccullough.org/riley_friesen",
+                "description": "Odio omnis ut. Et molestias quisquam. Fugit sit est. Illum tenetur ab. Fugiat dolore nostrum. Offic.",
+                "tags": [
+                  "collaboration",
+                  "https",
+                  "proxy",
+                  "writing",
+                  "organization"
+                ],
+                "created_by": "539"
+              },
+              {
+                "id": 5579,
+                "title": "quam",
+                "link": "http://pollich.biz/victorina",
+                "description": "Qui exercitationem enim. Eaque omnis aut. Debitis repudiandae odit. Fuga ipsum sed. Dolorum libero .",
+                "tags": [
+                  "collaboration",
+                  "https",
+                  "node",
+                  "developer",
+                  "calendar"
+                ],
+                "created_by": "539"
+              },
+              {
+                "id": 5580,
+                "title": "quo",
+                "link": "http://kutch.com/marion_mcglynn",
+                "description": "Quia ipsam sint. Dolor non sint. Eos voluptatem consectetur. Qui molestiae sequi. Assumenda omnis d.",
+                "tags": [
+                  "collaboration",
+                  "proxy",
+                  "node",
+                  "planning",
+                  "organization"
+                ],
+                "created_by": "539"
+              },
+              {
+                "id": 5581,
+                "title": "placeat",
+                "link": "http://kingkshlerin.io/li",
+                "description": "Illum rerum exercitationem. Consequatur id ducimus. Rerum sit consectetur. Placeat ipsam ab. Quis m.",
+                "tags": [
+                  "organization",
+                  "proxy",
+                  "writing",
+                  "https",
+                  "domain"
+                ],
+                "created_by": "539"
+              },
+              {
+                "id": 5582,
+                "title": "perspiciatis",
+                "link": "http://langoshcartwright.name/georgianne",
+                "description": "Odit quia consequatur. Illo adipisci corrupti. Rerum quia tenetur. Et beatae eaque. Delectus corpor.",
+                "tags": [
+                  "domain",
+                  "node",
+                  "https",
+                  "calendar",
+                  "proxy"
+                ],
+                "created_by": "539"
+              },
+              {
+                "id": 5583,
+                "title": "sed",
+                "link": "http://turcotte.info/kenia",
+                "description": "Neque animi quos. Vel fugiat est. Accusantium sit provident. Iure occaecati temporibus. Perspiciati.",
+                "tags": [
+                  "https",
+                  "domain",
+                  "organizing",
+                  "proxy",
+                  "collaboration"
+                ],
+                "created_by": "539"
+              },
+              {
+                "id": 5584,
+                "title": "iure",
+                "link": "http://murphy.com/loren.aufderhar",
+                "description": "Minus repudiandae et. Delectus consequatur amet. Commodi earum natus. Facere exercitationem minima..",
+                "tags": [
+                  "calendar",
+                  "organizing",
+                  "developer",
+                  "node",
+                  "writing"
+                ],
+                "created_by": "539"
+              },
+              {
+                "id": 5585,
+                "title": "voluptas",
+                "link": "http://durgan.biz/gaylord_harvey",
+                "description": "Fugiat sunt laboriosam. Id voluptates excepturi. Ipsum magni dicta. Reprehenderit et enim. Dolorem .",
+                "tags": [
+                  "organization",
+                  "developer",
+                  "writing",
+                  "https",
+                  "webapps"
+                ],
+                "created_by": "539"
+              },
+              {
+                "id": 5586,
+                "title": "quam",
+                "link": "http://luettgen.co/booker.braun",
+                "description": "Amet nihil quisquam. Et aut iste. Deleniti ut incidunt. Qui eveniet cupiditate. Culpa amet necessit.",
+                "tags": [
+                  "planning",
+                  "collaboration",
+                  "node",
+                  "domain",
+                  "developer"
+                ],
+                "created_by": "539"
+              },
+              {
+                "id": 5587,
+                "title": "qui",
+                "link": "http://keebler.co/larhonda",
+                "description": "Consectetur vel a. Vero optio incidunt. Atque temporibus quia. Est repellat ut. Et repudiandae nemo.",
+                "tags": [
+                  "webapps",
+                  "organizing",
+                  "proxy",
+                  "calendar",
+                  "collaboration"
+                ],
+                "created_by": "539"
+              }
+            ]
+
+### Listar uma ferramenta por ID [GET /tools/{id}]
+
++ Parameters
+    + id: `10` (number, required) - Id da ferramenta
+
++ Request returns a tool collection
+**GET**&nbsp;&nbsp;`/api/v1/tools/5588`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "id": 5588,
+              "title": "qui",
+              "link": "http://kreigercartwright.name/carlena_hermiston",
+              "description": "Aliquam tempora qui. Quia veniam quos. Ut maxime molestiae. Velit eum deserunt. Iusto delectus ut. .",
+              "tags": [
+                "organization",
+                "domain",
+                "developer",
+                "planning",
+                "https"
+              ],
+              "created_by": "540"
+            }
+
++ Request return a not found message
+**GET**&nbsp;&nbsp;`/api/v1/tools/120`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
++ Response 404
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "message": "Couldn't find Tool with 'id'=120"
+            }
+
+### Filtrar ferramentas utilizando uma busca por tag [GET /tools/?tag={tag}]
+
++ Parameters
+    + tag: `node` (string, required) - Tag a ser filtrada
+
++ Request returns tools tagged with this tag
+**GET**&nbsp;&nbsp;`/api/v1/tools?tag=node`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            [
+              {
+                "id": 5611,
+                "title": "nesciunt",
+                "link": "http://treutel.name/stevie",
+                "description": "Doloremque ut sint. Rem debitis pariatur. Amet est delectus. Alias aliquam voluptas. Error fugiat p.",
+                "tags": [
+                  "proxy",
+                  "developer",
+                  "writing",
+                  "node",
+                  "domain"
+                ],
+                "created_by": "542"
+              },
+              {
+                "id": 5612,
+                "title": "deserunt",
+                "link": "http://christiansenpfeffer.name/hui_carter",
+                "description": "Neque quasi consequatur. Nostrum alias iste. Eaque pariatur deserunt. Vel ea autem. Asperiores even.",
+                "tags": [
+                  "collaboration",
+                  "https",
+                  "webapps",
+                  "node",
+                  "developer"
+                ],
+                "created_by": "542"
+              },
+              {
+                "id": 5613,
+                "title": "qui",
+                "link": "http://heathcote.org/josue.daugherty",
+                "description": "Atque ut vitae. Voluptatem aut illum. Sapiente officiis repellat. Soluta dignissimos quia. Officia .",
+                "tags": [
+                  "https",
+                  "domain",
+                  "node",
+                  "webapps",
+                  "calendar"
+                ],
+                "created_by": "542"
+              },
+              {
+                "id": 5615,
+                "title": "et",
+                "link": "http://jacobilittle.net/danika",
+                "description": "Tenetur officiis voluptatem. Optio facere aut. Est suscipit rerum. Quo blanditiis sit. Debitis est .",
+                "tags": [
+                  "calendar",
+                  "node",
+                  "https",
+                  "collaboration",
+                  "organizing"
+                ],
+                "created_by": "542"
+              },
+              {
+                "id": 5616,
+                "title": "nemo",
+                "link": "http://waelchi.info/eugenie",
+                "description": "Aut repellendus perferendis. Nobis qui voluptates. Et et culpa. Voluptatem doloremque illum. Nostru.",
+                "tags": [
+                  "node",
+                  "proxy",
+                  "developer",
+                  "planning",
+                  "https"
+                ],
+                "created_by": "542"
+              },
+              {
+                "id": 5617,
+                "title": "eligendi",
+                "link": "http://becker.info/laquanda.weimann",
+                "description": "Soluta voluptatem beatae. Blanditiis vitae beatae. Repellendus earum molestiae. Quia repellat nulla.",
+                "tags": [
+                  "organization",
+                  "calendar",
+                  "node",
+                  "https",
+                  "webapps"
+                ],
+                "created_by": "542"
+              }
+            ]
+
++ Request body response is empty
+**GET**&nbsp;&nbsp;`/api/v1/tools?tag=bla`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
++ Response 404
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+
+
+### Cadastrar uma nova ferramenta [POST /tools]
+
++ Parameters
+    + title: `quod` (string, required) - Nome da ferramenta
+    + link: `http%3A%2F%2Fsauer.name%2Fangela` (string, required) - Link da ferramenta
+    + description: `Modi+sit+consequatur` (string, required) - Descrição da ferramenta
+    + tag: `%5B%22node%22%2C+%22web%22%5D` (array, required) - Tags da ferramenta
+
++ Request creates a new tool collection
+**POST**&nbsp;&nbsp;`/api/v1/tools`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
+    + Body
+
+            {
+              "title": "notebook",
+              "link": "https://example.com",
+              "description": "Local app manager. Start apps within your browser, developer tool with local\n                        .localhost domain and https out of the box.",
+              "tags": [
+                "electronic",
+                "organizing",
+                "computer",
+                "developer",
+                "node"
+              ],
+              "created_by": "544"
+            }
+
++ Response 201
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "id": 5638,
+              "title": "notebook",
+              "link": "https://example.com",
+              "description": "Local app manager. Start apps within your browser, developer tool with local\n                        .localhost domain and https out of the box.",
+              "tags": [
+                "electronic",
+                "organizing",
+                "computer",
+                "developer",
+                "node"
+              ],
+              "created_by": "544"
+            }
+
++ Request returns a validation failure message
+**POST**&nbsp;&nbsp;`/api/v1/tools`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
+    + Body
+
+            {
+              "title": "notebook",
+              "created_by": "545"
+            }
+
++ Response 422
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "message": "Validation failed: Link can't be blank, Description can't be blank, Tags can't be blank"
+            }
+
+### Editar uma ferramenta [PUT /tools/{id}]
+
++ Parameters
+    + title: `quod` (string, required) - Nome da ferramenta
+    + link: `http%3A%2F%2Fsauer.name%2Fangela` (string, required) - Link da ferramenta
+    + description: `Modi+sit+consequatur` (string, required) - Descrição da ferramenta
+    + tag: `%5B%22node%22%2C+%22web%22%5D` (array, required) - Tags da ferramenta
+
++ Request updates the requested tool collection
+**PUT**&nbsp;&nbsp;`/api/v1/tools/5649`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
+    + Body
+
+            {
+              "title": "Lorem"
+            }
+
++ Response 204
+
++ Request return a not found message
+**PUT**&nbsp;&nbsp;`/api/v1/tools/120`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
+    + Body
+
+            "{\"title\":\"Lorem\"}"
+
++ Response 404
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "message": "Couldn't find Tool with 'id'=120"
+            }
+
+### Apagar uma ferramenta por ID [DELETE /tools/{id}]
+
++ Parameters
+    + id: `10` (number, required) - Id da ferramenta
+
++ Request deletes the requested tool collection
+**DELETE**&nbsp;&nbsp;`/api/v1/tools/5669`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
++ Response 404
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "message": "Couldn't find Tool with 'id'=5669"
+            }
+
++ Request return a not found message
+**DELETE**&nbsp;&nbsp;`/api/v1/tools/120`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
++ Response 404
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "message": "Couldn't find Tool with 'id'=120"
+            }
