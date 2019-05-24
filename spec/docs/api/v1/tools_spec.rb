@@ -56,7 +56,7 @@ module Docs
         action "Cadastrar uma nova ferramenta" do
           path '/tools'
           verb 'POST'
-          params params show_params
+          params show_params
         end
       end
 
