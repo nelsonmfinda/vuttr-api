@@ -3,7 +3,7 @@
 [![CircleCI](https://circleci.com/gh/nelsonmfinda/vuttr-api.svg?style=svg)](https://circleci.com/gh/nelsonmfinda/vuttr-api)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d7d52a50d1e28dcb84e8/maintainability)](https://codeclimate.com/github/nelsonmfinda/vuttr-api/maintainability)
 
-API para a aplicação VUTTR (Very Useful Tools to Remember). Uma simples API para gerenciar ferramentas.
+API para a aplicação VUTTR (Very Useful Tools to Remember). Uma simples API para gerenciar ferramentas. [Documentação da API](https://vuttrapiv1.docs.apiary.io/)
 
 * Requisitos
 
@@ -14,7 +14,7 @@ API para a aplicação VUTTR (Very Useful Tools to Remember). Uma simples API pa
 
 ## Como executar
 
-Instale as dependências do project
+Instale as dependências do projecto
 
 ```sh
   bundle install
@@ -38,136 +38,77 @@ Rode o projecto em sua máquina
     bundle exec rails s
 ```
 
-Em seguida, acesse `localhost:3000/api/v1`
+Em seguida, crie um novo usuário:
 
-## Rotas
-Todas as requisições de POST para esta API devem conter o header `Content-Type: application/json`.
-Esta API contém as seguintes rotas:
+### POST /signup
 
-* `POST /auth/login` : cria uma nova sessão
-* `POST /signup` : destrói uma sessão
-* `GET /tools` : lista as ferramentas cadastradas
-* `GET /tools/{:id}` : lista uma ferramenta através do seu _:id_ 
-* `POST /tools` : cria uma nova ferramenta
-* `DELETE /tools/:id` : apaga a ferramenta com  o _:id_ passado por parâmetro
+Requisição:
+```javascript
+// POST /signup
+// Content-Type: application/json
+{
+    "name": "seu nome",
+    "email": "seu emial",
+    "password": "sua senha",
+	"password_confirmation": "sua senha"
+}
+```
 
-Para filtrar as ferramentas em `GET /tools`, é possível:
-* fazer uma busca global utilizando a query string `?q=:busca`;
-* fazer uma busca por tags individuais utilizando a query string `?tags_like=:busca`.
+Resposta:
+```javascript
+{
+    "message": "Account created successfully",
+  	"auth_token": "aqui aparecerá o seu Token"
+}
+```
 
-## Exemplos
+Exemplo de um `auth_token`: _eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2Mz_
+
+O `auth_token` é válido durante 24h deste o momento da sua criação. Agora, acesse `localhost:3000/api/v1/tools` passando o `auth_token`, como neste exemplo:
 
 ### GET /tools
 
 Requisição:
 ```javascript
-GET /tools
+// GET /tools
+// Content-Type: application/json
+// Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcmF0aW9uIjoxNTU4MjgxNDk5fQ.pXkSaG4tzP2-PJx0yIeNLy5nuoFoJegXu18AFeioAQE
 ```
+
 Resposta:
+
 ```javascript
-[
-    {
-        id: 1,
-        title: "Notion",
-        link: "https://notion.so",
-        description: "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized. ",
-        tags: [
-            "organization",
-            "planning",
-            "collaboration",
-            "writing",
-            "calendar"
-        ]
-    },
-    {
-        id: 2,
-        title: "json-server",
-        link: "https://github.com/typicode/json-server",
-        description: "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
-        tags: [
+{
+        "id": 1,
+        "title": "json-server",
+        "link": "https://github.com/typicode/json-server",
+        "description": "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
+        "tags": [
             "api",
             "json",
             "schema",
             "node",
             "github",
             "rest"
-        ]
-    },
-    {
-        id: 3,
-        title: "fastify",
-        link: "https://www.fastify.io/",
-        description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
-        tags: [
-            "web",
-            "framework",
-            "node",
-            "http2",
-            "https",
-            "localhost"
-        ]
-    }
-]
+        ],
+        "created_by": "1"
+ }
 ```
 
-### GET /tools?q=:busca
 
-Requisição:
-```javascript
-GET /tools?q=notion
-```
-Resposta:
-```javascript
-[
-    {
-        id: 1,
-        title: "Notion",
-        link: "https://notion.so",
-        description: "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized. ",
-        tags: [
-            "organization",
-            "planning",
-            "collaboration",
-            "writing",
-            "calendar"
-        ]
-    }
-]
-```
 
-### POST /tools
+## Rotas
 
-Requisição:
-```javascript
-// POST /tools
-// Content-Type: application/json
-{
-    "title": "hotel",
-    "link": "https://github.com/typicode/hotel",
-    "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
-    "tags":["node", "organizing", "webapps", "domain", "developer", "https", "proxy"]
-}
-```
+Todas as requisições para esta API devem conter o header `Content-Type: application/json` e um `Bearer Token`(Faça _login_ ou _signup_ para ter o seu `Bearer Token`).
+Esta API contém as seguintes rotas:
 
-Resposta:
-```javascript
-{
-    "title": "hotel",
-    "link": "https://github.com/typicode/hotel",
-    "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
-    "tags":["node", "organizing", "webapps", "domain", "developer", "https", "proxy"],
-    "id":5
-}
-```
+* `POST /auth/login` : cria uma nova sessão
+* `POST /signup` : cadastrar um novo usuário
+* `GET /tools` : lista as ferramentas cadastradas
+* `GET /tools/:id` : lista uma ferramenta através do seu _:id_
+* `POST /tools` : cria uma nova ferramenta
+* `DELETE /tools/:id` : apaga a ferramenta com  o _:id_ passado por parâmetro
 
-### DELETE /tools/:id
-Requisição:
-```javascript
-DELETE /tools/5
-```
+Para filtrar as ferramentas em `GET /tools`, é possível:
+* fazer uma busca por tags individuais utilizando a query string `?tag=:busca`.
 
-Resposta:
-```javascript
-// Status: 200 OK
-{}
-```
