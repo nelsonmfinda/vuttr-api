@@ -1,12 +1,86 @@
+FORMAT: 1A
+HOST: https://vuttr-api.herokuapp.com/api/v1
+
 # VUTTR API
 
 Uma API para a aplicação VUTTR (Very Useful Tools to Remember), para gerenciar ferramentas,
 onde um usuário logado pode listar/criar/editar/excluir ferramentas.
 
+# Group Autenticação
+
+
+## Autenticação [/auth/login]
+### /auth/login
+
+Autenticar um usuário
+
+
+### Autenticar um usuário [POST /auth/login]
+
++ Parameters
+    + email: `mariajoana@hotmail.com` (string, required) - Email do usuário
+    + password: `cec7052fcd3` (string, required) - Senha do usuário
+
++ Request returns an authentication token
+**POST**&nbsp;&nbsp;`/api/v1/auth/login`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
+    + Body
+
+            {
+              "email": "rodolfo@tremblay.com",
+              "password": "QxGnZ0Ax"
+            }
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2MTcsImV4cGlyYXRpb24iOjE1NTg3NTc5MzV9.HRcC8-zUJ5gxSI8lnoyWaUtP4iJNMrJ59QtBDZYERHw"
+            }
+
++ Request returns invalid credentials message
+**POST**&nbsp;&nbsp;`/api/v1/auth/login`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+
+    + Body
+
+            {
+              "email": "eleasedach@nolan.net",
+              "password": "0sSi4eYa0pOcR"
+            }
+
++ Response 401
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "message": "Invalid credentials"
+            }
+
 # Group Ferramentas
 
 
 ## Ferramentas [/tools]
+### /tools
+
 Endpoint para criar/editar/apagar/listar/filtrar ferramentas
 
 
@@ -31,144 +105,144 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
 
             [
               {
-                "id": 6022,
-                "title": "et",
-                "link": "http://corwin.co/yelena",
-                "description": "Vel repudiandae eum. Voluptatibus unde cumque. Ratione ullam accusamus. Eaque non ut. Consectetur a.",
+                "id": 6244,
+                "title": "nostrum",
+                "link": "http://andersonmarvin.net/milo",
+                "description": "Atque veniam iste. Iste ipsum rerum. Quas optio tempora. Modi asperiores sint. Dolor voluptas ipsam.",
                 "tags": [
+                  "organizing",
+                  "planning",
                   "webapps",
                   "organization",
-                  "domain",
-                  "writing",
-                  "collaboration"
-                ],
-                "created_by": "589"
-              },
-              {
-                "id": 6023,
-                "title": "rerum",
-                "link": "http://kozeyjacobson.co/aurelia_moore",
-                "description": "Eaque explicabo velit. Velit voluptate quia. Sed quia reprehenderit. Enim sit mollitia. Error sint .",
-                "tags": [
-                  "webapps",
-                  "calendar",
-                  "https",
-                  "planning",
-                  "collaboration"
-                ],
-                "created_by": "589"
-              },
-              {
-                "id": 6024,
-                "title": "voluptatem",
-                "link": "http://ratke.io/bea",
-                "description": "Iure qui maiores. Aut error dicta. Nisi magni quos. Magni quae non. Minima occaecati saepe. Porro v.",
-                "tags": [
-                  "developer",
-                  "calendar",
-                  "proxy",
-                  "writing",
-                  "https"
-                ],
-                "created_by": "589"
-              },
-              {
-                "id": 6025,
-                "title": "laborum",
-                "link": "http://mannmohr.biz/teddy",
-                "description": "Nobis ea ullam. Enim est tempora. Qui exercitationem eaque. Voluptates accusamus consequatur. Asper.",
-                "tags": [
-                  "organizing",
-                  "domain",
-                  "calendar",
-                  "webapps",
-                  "collaboration"
-                ],
-                "created_by": "589"
-              },
-              {
-                "id": 6026,
-                "title": "blanditiis",
-                "link": "http://rodriguezkiehn.io/leonard",
-                "description": "Quis qui laborum. Adipisci enim excepturi. Dolorem delectus ex. Illo excepturi expedita. Sit et nes.",
-                "tags": [
-                  "calendar",
-                  "proxy",
-                  "node",
-                  "developer",
-                  "planning"
-                ],
-                "created_by": "589"
-              },
-              {
-                "id": 6027,
-                "title": "voluptas",
-                "link": "http://reinger.io/annis",
-                "description": "Libero sit quasi. Rem totam nisi. Delectus nostrum quod. Quas aut aut. Doloremque vel maxime. Non n.",
-                "tags": [
-                  "organizing",
-                  "calendar",
-                  "https",
-                  "planning",
-                  "proxy"
-                ],
-                "created_by": "589"
-              },
-              {
-                "id": 6028,
-                "title": "dolores",
-                "link": "http://rodriguezlubowitz.net/jacob",
-                "description": "Reprehenderit aliquam voluptas. Doloremque laboriosam qui. Optio dolores sunt. Ipsa odit soluta. Te.",
-                "tags": [
-                  "developer",
-                  "calendar",
-                  "collaboration",
-                  "writing",
                   "domain"
                 ],
-                "created_by": "589"
+                "created_by": "619"
               },
               {
-                "id": 6029,
-                "title": "sit",
-                "link": "http://jacobson.com/gene_ratke",
-                "description": "Aliquam voluptatum aut. Sed sed dolorem. Et iusto et. Reiciendis maiores nisi. In eos voluptatem. Q.",
+                "id": 6245,
+                "title": "vero",
+                "link": "http://hoeger.biz/tristan_hackett",
+                "description": "Sed esse vero. Est porro et. Aperiam nulla est. Illum omnis ipsum. Atque consequatur rerum. Possimu.",
                 "tags": [
-                  "proxy",
-                  "node",
-                  "planning",
+                  "webapps",
+                  "developer",
+                  "calendar",
                   "organizing",
+                  "planning"
+                ],
+                "created_by": "619"
+              },
+              {
+                "id": 6246,
+                "title": "est",
+                "link": "http://steuber.org/brandi.ledner",
+                "description": "Distinctio et nostrum. Eum deleniti tempora. Qui quam unde. Itaque placeat eius. Enim perferendis o.",
+                "tags": [
+                  "webapps",
+                  "planning",
+                  "https",
+                  "domain",
+                  "organization"
+                ],
+                "created_by": "619"
+              },
+              {
+                "id": 6247,
+                "title": "nihil",
+                "link": "http://leannonleannon.net/trisha_bednar",
+                "description": "Cum eos quia. Non officia qui. Totam consectetur tenetur. Officiis velit voluptatum. Ea incidunt ea.",
+                "tags": [
+                  "planning",
+                  "webapps",
+                  "writing",
+                  "node",
                   "developer"
                 ],
-                "created_by": "589"
+                "created_by": "619"
               },
               {
-                "id": 6030,
-                "title": "nam",
-                "link": "http://haleycole.info/sung",
-                "description": "Magni velit sed. Cum laboriosam tempore. Velit aut porro. Minima voluptates quod. Mollitia et non. .",
+                "id": 6248,
+                "title": "quidem",
+                "link": "http://medhurstbeier.io/art_marks",
+                "description": "Perferendis iusto dicta. Velit mollitia aut. Veniam animi aut. Quae libero minima. Et dolore iste. .",
+                "tags": [
+                  "webapps",
+                  "node",
+                  "developer",
+                  "https",
+                  "domain"
+                ],
+                "created_by": "619"
+              },
+              {
+                "id": 6249,
+                "title": "nisi",
+                "link": "http://hopperohan.biz/stephany_stracke",
+                "description": "Eius molestiae voluptas. Incidunt natus ut. Nihil deleniti quisquam. Quod nesciunt autem. Adipisci .",
+                "tags": [
+                  "organization",
+                  "node",
+                  "https",
+                  "proxy",
+                  "webapps"
+                ],
+                "created_by": "619"
+              },
+              {
+                "id": 6250,
+                "title": "placeat",
+                "link": "http://nicolas.co/criy_hoppe",
+                "description": "Quaerat occaecati harum. Laudantium quam distinctio. Soluta et ducimus. Neque et molestias. Sunt ve.",
                 "tags": [
                   "organization",
                   "proxy",
-                  "webapps",
-                  "collaboration",
-                  "organizing"
-                ],
-                "created_by": "589"
-              },
-              {
-                "id": 6031,
-                "title": "suscipit",
-                "link": "http://halvorsonmertz.info/dionna",
-                "description": "Molestiae qui tempora. Vel aut ut. Eos voluptatem ullam. Fugit perferendis quia. Omnis magni et. Be.",
-                "tags": [
-                  "writing",
-                  "proxy",
-                  "planning",
-                  "domain",
+                  "https",
+                  "developer",
                   "calendar"
                 ],
-                "created_by": "589"
+                "created_by": "619"
+              },
+              {
+                "id": 6251,
+                "title": "quasi",
+                "link": "http://champlinruecker.name/ali.terry",
+                "description": "Aut id excepturi. Ad cumque placeat. Excepturi ut consequatur. Soluta nihil vitae. Accusamus ration.",
+                "tags": [
+                  "collaboration",
+                  "organization",
+                  "developer",
+                  "webapps",
+                  "calendar"
+                ],
+                "created_by": "619"
+              },
+              {
+                "id": 6252,
+                "title": "recusandae",
+                "link": "http://jaskolskiherman.info/hellen",
+                "description": "Consectetur sunt ratione. Fugiat itaque qui. Numquam distinctio voluptatem. Ut sapiente eius. Non e.",
+                "tags": [
+                  "https",
+                  "proxy",
+                  "developer",
+                  "organizing",
+                  "planning"
+                ],
+                "created_by": "619"
+              },
+              {
+                "id": 6253,
+                "title": "dolorem",
+                "link": "http://armstrongcorwin.biz/meghan",
+                "description": "Qui suscipit error. Modi fugiat nihil. Est quia quia. Eum alias aperiam. Est perspiciatis tenetur. .",
+                "tags": [
+                  "writing",
+                  "webapps",
+                  "proxy",
+                  "organizing",
+                  "calendar"
+                ],
+                "created_by": "619"
               }
             ]
 
@@ -178,7 +252,7 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
     + id: `10` (number, required) - Id da ferramenta
 
 + Request returns a tool collection
-**GET**&nbsp;&nbsp;`/api/v1/tools/6032`
+**GET**&nbsp;&nbsp;`/api/v1/tools/6254`
 
     + Headers
 
@@ -194,18 +268,18 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
     + Body
 
             {
-              "id": 6032,
-              "title": "voluptate",
-              "link": "http://kulascollins.biz/cinda",
-              "description": "Est ullam soluta. Expedita cupiditate odit. Occaecati eos omnis. Et sapiente qui. Molestiae et numq.",
+              "id": 6254,
+              "title": "molestiae",
+              "link": "http://keeling.io/troy.quitzon",
+              "description": "Quo porro nisi. Deserunt qui delectus. Quia reiciendis et. Sed illum laboriosam. In nobis eum. Repe.",
               "tags": [
+                "collaboration",
+                "https",
+                "organizing",
                 "calendar",
-                "webapps",
-                "organization",
-                "planning",
                 "proxy"
               ],
-              "created_by": "590"
+              "created_by": "620"
             }
 
 + Request return a not found message
@@ -251,32 +325,60 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
 
             [
               {
-                "id": 6053,
-                "title": "aperiam",
-                "link": "http://trantowwintheiser.info/timmy.ankunding",
-                "description": "Dolorem cumque ullam. Pariatur recusandae numquam. Rerum aut ut. Sint perspiciatis consequatur. Ver.",
+                "id": 6274,
+                "title": "eligendi",
+                "link": "http://heller.co/tanner_crona",
+                "description": "Aperiam molestiae rerum. Quidem similique aut. Minima perferendis magni. Suscipit labore esse. Quia.",
                 "tags": [
-                  "developer",
-                  "node",
+                  "proxy",
+                  "webapps",
                   "calendar",
-                  "organizing",
-                  "webapps"
+                  "node",
+                  "developer"
                 ],
-                "created_by": "592"
+                "created_by": "622"
               },
               {
-                "id": 6057,
-                "title": "explicabo",
-                "link": "http://kihnruecker.net/ila.ziemann",
-                "description": "Nostrum quod ducimus. Consequatur ipsum dolores. Ab beatae accusamus. Dolore earum perferendis. Mol.",
+                "id": 6280,
+                "title": "quos",
+                "link": "http://kulas.org/trey.beatty",
+                "description": "Corporis earum id. Officiis nemo provident. Voluptatibus ut aut. Repellat dolorum omnis. Sapiente u.",
                 "tags": [
-                  "collaboration",
+                  "webapps",
+                  "https",
                   "calendar",
-                  "proxy",
                   "node",
-                  "writing"
+                  "developer"
                 ],
-                "created_by": "592"
+                "created_by": "622"
+              },
+              {
+                "id": 6281,
+                "title": "sunt",
+                "link": "http://mrazabbott.io/olin",
+                "description": "Placeat voluptatum natus. Quia maxime nisi. A consequatur est. Dolor rerum nihil. Voluptatem conseq.",
+                "tags": [
+                  "proxy",
+                  "planning",
+                  "webapps",
+                  "organization",
+                  "node"
+                ],
+                "created_by": "622"
+              },
+              {
+                "id": 6282,
+                "title": "doloribus",
+                "link": "http://bednar.co/pablo",
+                "description": "Voluptate molestiae asperiores. Hic quia vel. Omnis qui distinctio. Molestiae quo sit. Dolores et i.",
+                "tags": [
+                  "organization",
+                  "webapps",
+                  "node",
+                  "writing",
+                  "https"
+                ],
+                "created_by": "622"
               }
             ]
 
@@ -327,7 +429,7 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
                 "developer",
                 "node"
               ],
-              "created_by": "594"
+              "created_by": "624"
             }
 
 + Response 201
@@ -339,7 +441,7 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
     + Body
 
             {
-              "id": 6082,
+              "id": 6304,
               "title": "notebook",
               "link": "https://example.com",
               "description": "Local app manager. Start apps within your browser, developer tool with local\n                        .localhost domain and https out of the box.",
@@ -350,7 +452,7 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
                 "developer",
                 "node"
               ],
-              "created_by": "594"
+              "created_by": "624"
             }
 
 + Request returns a validation failure message
@@ -365,7 +467,7 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
 
             {
               "title": "notebook",
-              "created_by": "595"
+              "created_by": "625"
             }
 
 + Response 422
@@ -389,7 +491,7 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
     + tags: `%5B%22node%22%2C+%22web%22%5D` (array, required) - Tags da ferramenta
 
 + Request updates the requested tool collection
-**PUT**&nbsp;&nbsp;`/api/v1/tools/6093`
+**PUT**&nbsp;&nbsp;`/api/v1/tools/6315`
 
     + Headers
 
@@ -434,7 +536,7 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
     + id: `10` (number, required) - Id da ferramenta
 
 + Request deletes the requested tool collection
-**DELETE**&nbsp;&nbsp;`/api/v1/tools/6113`
+**DELETE**&nbsp;&nbsp;`/api/v1/tools/6335`
 
     + Headers
 
@@ -450,7 +552,7 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
     + Body
 
             {
-              "message": "Couldn't find Tool with 'id'=6113"
+              "message": "Couldn't find Tool with 'id'=6335"
             }
 
 + Request return a not found message
@@ -477,6 +579,8 @@ Endpoint para criar/editar/apagar/listar/filtrar ferramentas
 
 
 ## Usuários [/signup]
+### /signup
+
 Endpoint para cadastrar um novo usuário
 
 
@@ -499,10 +603,10 @@ Endpoint para cadastrar um novo usuário
     + Body
 
             {
-              "name": "bennie",
-              "email": "bennie@zboncaknienow.io",
-              "password": "C61k7w84P",
-              "password_confirmation": "C61k7w84P"
+              "name": "chanel",
+              "email": "chanel@barton.net",
+              "password": "LtO4WqWlZa",
+              "password_confirmation": "LtO4WqWlZa"
             }
 
 + Response 201
@@ -515,7 +619,7 @@ Endpoint para cadastrar um novo usuário
 
             {
               "message": "Account created successfully",
-              "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2MDAsImV4cGlyYXRpb24iOjE1NTg3MjExMTF9.7u4ak1nnCifkI9TnfxxX4HtdAZoXtsK6JdluMYeeyFg"
+              "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2MzAsImV4cGlyYXRpb24iOjE1NTg3NTc5MzV9.D7z8O4m_EpR9MvX3WoRhZ74u6Lr6CiVcvwFuw6mIoRc"
             }
 
 + Request returns an authentication token
@@ -529,10 +633,10 @@ Endpoint para cadastrar um novo usuário
     + Body
 
             {
-              "name": "elin",
-              "email": "elin@bernierrobel.name",
-              "password": "H1Zw6x2qZs",
-              "password_confirmation": "H1Zw6x2qZs"
+              "name": "geri.becker",
+              "email": "geribecker@bogan.org",
+              "password": "C7Zi1d2m",
+              "password_confirmation": "C7Zi1d2m"
             }
 
 + Response 201
@@ -545,7 +649,7 @@ Endpoint para cadastrar um novo usuário
 
             {
               "message": "Account created successfully",
-              "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2MDEsImV4cGlyYXRpb24iOjE1NTg3MjExMTF9.aencnoHKoyKU3kSQbN0R81q6EyYH9z1NJCfE9eC5JpI"
+              "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2MzEsImV4cGlyYXRpb24iOjE1NTg3NTc5MzV9.Do2iWkYGWyuevCkzsySWu6GnwrZlLlEejWIKmgRUfnA"
             }
 
 + Request does not create a new user
