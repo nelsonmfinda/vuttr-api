@@ -9,8 +9,9 @@ API para a aplicação VUTTR (Very Useful Tools to Remember). Uma simples API pa
 
   1. Ruby ~> 2.6.0 (Recomendo [rbenv](https://github.com/sstephenson/rbenv))
   2. Docker => 18.09.4
-  3. PostgreSQL ~> 9.5.16
-  4. Bundler => 2.0.1 (`gem install bundler` ou `bundle update --bundler`)
+  3. Docker-compose => 1.23.1
+  4. PostgreSQL ~> 9.5.16
+  5. Bundler => 2.0.1 (`gem install bundler` ou `bundle update --bundler`)
 
 ## Como executar
 
@@ -47,24 +48,24 @@ Requisição:
 // POST /signup
 // Content-Type: application/json
 {
-    "name": "seu nome",
-    "email": "seu emial",
-    "password": "sua senha",
-	"password_confirmation": "sua senha"
+  "name": "seu nome",
+  "email": "seu emial",
+  "password": "sua senha",
+	"password_confirmation": "confirme sua senha"
 }
 ```
 
 Resposta:
 ```javascript
 {
-    "message": "Account created successfully",
-  	"auth_token": "aqui aparecerá o seu Token"
+  "message": "Account created successfully",
+  "auth_token": "aqui aparecerá o seu Token"
 }
 ```
 
 Exemplo de um `auth_token`: _eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2Mz_
 
-O `auth_token` é válido durante 24h deste o momento da sua criação. Agora, acesse `localhost:3000/api/v1/tools` passando o `auth_token`, como neste exemplo:
+Agora, acesse `localhost:3000/api/v1/tools` passando o `auth_token`, como neste exemplo:
 
 ### GET /tools
 
@@ -79,19 +80,19 @@ Resposta:
 
 ```javascript
 {
-        "id": 1,
-        "title": "json-server",
-        "link": "https://github.com/typicode/json-server",
-        "description": "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
-        "tags": [
-            "api",
-            "json",
-            "schema",
-            "node",
-            "github",
-            "rest"
-        ],
-        "created_by": "1"
+  "id": 1,
+  "title": "json-server",
+  "link": "https://github.com/typicode/json-server",
+  "description": "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
+  "tags": [
+      "api",
+      "json",
+      "schema",
+      "node",
+      "github",
+      "rest"
+  ],
+  "created_by": "1"
  }
 ```
 
