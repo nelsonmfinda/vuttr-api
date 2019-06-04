@@ -1,4 +1,5 @@
 class Api::V1::ToolsController < ApplicationController
+  before_action :set_tool, only: [:destroy, :update]
 
   # GET /tools
   # GET /tools?tag=
@@ -29,13 +30,12 @@ class Api::V1::ToolsController < ApplicationController
 
   # PATCH/PUT /tools/:id
   def update
-    set_tool
     head :no_content
   end
 
   # DELETE /tools/:id
   def destroy
-    set_tool.destroy
+    @tool.destroy
     head :no_content
   end
 
@@ -50,6 +50,6 @@ class Api::V1::ToolsController < ApplicationController
   end
 
   def set_tool
-    @tool = Tool.find(params[:id])
+    @tool = current_user.tools.find(params[:id])
   end
 end

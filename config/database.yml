@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: vuttr-api_production
-  username: vuttr-api
-  password: <%= ENV['VUTTR-API_DATABASE_PASSWORD'] %>
