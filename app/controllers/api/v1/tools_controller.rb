@@ -50,6 +50,6 @@ class Api::V1::ToolsController < ApplicationController
   end
 
   def set_tool
-    @tool = Tool.find(params[:id])
+    @tool = current_user.tools.find(params[:id])
   end
 end
