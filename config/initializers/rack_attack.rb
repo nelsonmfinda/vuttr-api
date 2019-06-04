@@ -8,22 +8,33 @@ class Rack::Attack
     '127.0.0.1' == req.ip || '::1' == req.ip
   end
 
-  # Allow an IP address to make 10 requests every 10 seconds
+  # Allow an IP address to make 5 requests every 60 seconds
 
-  throttle('req/ip', limit: 5, period: 5) do |req|
+  throttle('req/ip', limit: 5, period: 60) do |req|
     req.ip
   end
 
-  # Throttle login attempts by email address
+  # Throttle login attempts for a given email parameter to 3 reqs/minute
+  # Return the email as a discriminator on POST /login requests
 
-  #throttle("logins/email", limit: 5, period: 20.seconds) do |req|
+  # throttle("/api/v1/auth/login", limit: 5, period: 20.seconds) do |req|
 
-  #  if req.path == '/users/sign_in' && req.post?
+  #  if req.path == '/api/v1/auth/login' && req.post?
 
-  #    req.params['email'].presence
+  #    req.params['email']
 
   #  end
 
-  #end
+  # end
+
+  # Send the following response to throttled clients
+  self.throttled_response = ->(env) {
+    retry_after = (env['rack.attack.match_data'] || {})[:period]
+    [
+      429,
+      {'Content-Type' => 'application/json', 'Retry-After' => retry_after.to_s},
+      [{error: "Throttle limit reached. Retry later."}.to_json]
+    ]
+  }
 
 end
