@@ -6,6 +6,7 @@ module ExceptionHandler
   class MissingToken < StandardError; end
   class InvalidToken < StandardError; end
   class ExpiredSignature < StandardError; end
+  class DecodeError < StandardError; end
 
   included do
 
@@ -13,7 +14,19 @@ module ExceptionHandler
     rescue_from ExceptionHandler::AuthenticationError, with: :unauthorized_request
     rescue_from ExceptionHandler::MissingToken, with: :four_twenty_two
     rescue_from ExceptionHandler::InvalidToken, with: :four_twenty_two
-    rescue_from ExceptionHandler::ExpiredSignature, with: :four_ninety_eight
+    # rescue_from ExceptionHandler::ExpiredSignature, with: :four_ninety_eight
+
+    rescue_from ExceptionHandler::DecodeError do |e|
+      json_response({ message: e.message }, :unauthorized)
+    end
+
+    rescue_from ExceptionHandler::ExpiredSignature do |e|
+      # render json: {
+      #   message: "Access denied!. Token has expired."
+      # }, status: :unauthorized
+
+      json_response({ message: e.message }, :unauthorized)
+    end
 
     rescue_from ActiveRecord::RecordNotFound do |e|
       json_response({ message: e.message }, :not_found)
