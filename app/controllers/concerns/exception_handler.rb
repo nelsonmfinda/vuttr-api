@@ -21,10 +21,6 @@ module ExceptionHandler
     end
 
     rescue_from ExceptionHandler::ExpiredSignature do |e|
-      # render json: {
-      #   message: "Access denied!. Token has expired."
-      # }, status: :unauthorized
-
       json_response({ message: e.message }, :unauthorized)
     end
 
