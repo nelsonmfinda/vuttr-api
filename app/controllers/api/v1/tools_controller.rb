@@ -4,7 +4,7 @@ class Api::V1::ToolsController < ApplicationController
   # GET /tools
   # GET /tools?tag=
   def index
-    if(params.has_key?(:tag))
+    if params.has_key?(:tag)
       if !tool_search.empty?
         @tools = tool_search.paginate(page: params[:page], per_page: 10)
         json_response(@tools)
@@ -40,16 +40,15 @@ class Api::V1::ToolsController < ApplicationController
   end
 
   private
+    def tool_params
+      params.permit(:title, :description, :link, :created_by, tags: [])
+    end
 
-  def tool_params
-    params.permit(:title, :description, :link, :created_by, :tags => [])
-  end
+    def tool_search
+      current_user.tools.where("? = ANY (tags)", params[:tag])
+    end
 
-  def tool_search
-    current_user.tools.where("? = ANY (tags)", params[:tag])
-  end
-
-  def set_tool
-    @tool = current_user.tools.find(params[:id])
-  end
+    def set_tool
+      @tool = current_user.tools.find(params[:id])
+    end
 end
