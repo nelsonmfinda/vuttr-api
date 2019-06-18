@@ -1,0 +1,24 @@
+{
+  "description": "shema POST tool",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  }
+}
