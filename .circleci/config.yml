@@ -56,7 +56,7 @@ jobs: # a collection of steps
       - run:
           name: Run Cucumber
           command: |
-            bundle exec cucumber
+            bundle exec cucumber -p test
 
       # Save test results for timing analysis
       - store_test_results:

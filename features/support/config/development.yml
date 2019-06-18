@@ -1,4 +1,4 @@
 base_uri: "http://0.0.0.0:3000/api/v1"
-auth_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjA5NDU1Mjl9.ItbSVTlny1GIdPeDC8NbldWO3XWJlFSuJbDzIo-l_OM"
+auth_token: ""
 email: "hello@nelsonmfinda.me"
 password: "1234"
