@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Tool, type: :model do
   it "ensure column title are present" do
