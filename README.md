@@ -5,15 +5,13 @@
 
 API para a aplicação VUTTR (Very Useful Tools to Remember). Uma simples API para gerenciar ferramentas. [Documentação da API](https://vuttrapiv1.docs.apiary.io/)
 
-* Requisitos
+## Pré-requisitos
 
-  1. Ruby ~> 2.6.0 (Recomendo [rbenv](https://github.com/sstephenson/rbenv))
-  2. Docker => 18.09.4
-  3. Docker-compose => 1.23.1
-  4. PostgreSQL ~> 9.5.16
-  5. Bundler => 2.0.1 (`gem install bundler` ou `bundle update --bundler`)
+- Possuir Ruby **~> 2.6.0** (Recomendo instalar via [rbenv](https://github.com/sstephenson/rbenv))
+- PostgreSQL ~> 9.5.16
+- Bundler => 2.0.1 (`gem install bundler` ou `bundle update --bundler`)
 
-## Como executar
+## 1) Instalando dependências
 
 Instale as dependências do projecto
 
@@ -21,16 +19,24 @@ Instale as dependências do projecto
   bundle install
 ```
 
+## 2) Executando Projeto
+
 Crie e inicialize a base de dados
 
 ```sh
-    bundle exec rails db:create db:migrate db:seed db:test:prepare
+    bundle exec rails db:create db:migrate db:test:prepare
 ```
 
-Execute os testes
+Na pasta raiz do projeto rode o comando:
 
 ```sh
     bundle exec rspec
+```
+
+e
+
+```sh
+    bundle exec cucumber
 ```
 
 Rode o projecto em sua máquina
@@ -44,6 +50,7 @@ Em seguida, crie um novo usuário:
 ### POST /signup
 
 Requisição:
+
 ```javascript
 // POST /signup
 // Content-Type: application/json
@@ -51,11 +58,12 @@ Requisição:
   "name": "seu nome",
   "email": "seu emial",
   "password": "sua senha",
-	"password_confirmation": "confirme sua senha"
+    "password_confirmation": "confirme sua senha"
 }
 ```
 
 Resposta:
+
 ```javascript
 {
   "message": "Account created successfully",
@@ -70,6 +78,7 @@ Agora, acesse `localhost:3000/api/v1/tools` passando o `auth_token`, como neste 
 ### GET /tools
 
 Requisição:
+
 ```javascript
 // GET /tools
 // Content-Type: application/json
@@ -96,20 +105,26 @@ Resposta:
  }
 ```
 
-
-
 ## Rotas
 
 Todas as requisições para esta API devem conter o header `Content-Type: application/json` e um `Bearer Token`(Faça _login_ ou _signup_ para ter o seu `Bearer Token`).
 Esta API contém as seguintes rotas:
 
-* `POST /auth/login` : cria uma nova sessão
-* `POST /signup` : cadastrar um novo usuário
-* `GET /tools` : lista as ferramentas cadastradas
-* `GET /tools/:id` : lista uma ferramenta através do seu _:id_
-* `POST /tools` : cria uma nova ferramenta
-* `DELETE /tools/:id` : apaga a ferramenta com  o _:id_ passado por parâmetro
+- `POST /auth/login` : cria uma nova sessão
+- `POST /signup` : cadastrar um novo usuário
+- `GET /tools` : lista as ferramentas cadastradas
+- `GET /tools/:id` : lista uma ferramenta através do seu _:id_
+- `POST /tools` : cria uma nova ferramenta
+- `DELETE /tools/:id` : apaga a ferramenta com o _:id_ passado por parâmetro
 
 Para filtrar as ferramentas em `GET /tools`, é possível:
-* fazer uma busca por tags individuais utilizando a query string `?tag=:busca`.
 
+- fazer uma busca por tags individuais utilizando a query string `?tag=:busca`.
+
+## 3) Documentação da API
+
+Link da [documentação](https://vuttrapiv1.docs.apiary.io/#) usando o padrão API Blueprint.
+
+## 4) Link API
+
+<http://vuttr-api.herokuapp.com/api/v1>
