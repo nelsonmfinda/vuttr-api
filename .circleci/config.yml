@@ -53,6 +53,11 @@ jobs: # a collection of steps
           command: |
             bundle exec rspec
 
+      - run:
+          name: Run Cucumber
+          command: |
+            bundle exec cucumber
+
       # Save test results for timing analysis
       - store_test_results:
           path: ~/vuttr-api/results
