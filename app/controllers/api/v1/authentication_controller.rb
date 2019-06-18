@@ -1,5 +1,4 @@
 class Api::V1::AuthenticationController < ApplicationController
-
   skip_before_action :authorize_request, only: :authenticate
 
   def authenticate
@@ -8,8 +7,7 @@ class Api::V1::AuthenticationController < ApplicationController
   end
 
   private
-
-  def auth_params
-    params.permit(:email, :password)
-  end
+    def auth_params
+      params.permit(:email, :password)
+    end
 end

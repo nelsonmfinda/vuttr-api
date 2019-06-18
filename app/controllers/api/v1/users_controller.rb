@@ -1,5 +1,4 @@
 class Api::V1::UsersController < ApplicationController
-
   skip_before_action :authorize_request, only: :create
 
   def create
@@ -10,8 +9,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
-
-  def user_params
-    params.permit(:name, :email, :password, :password_confirmation)
-  end
+    def user_params
+      params.permit(:name, :email, :password, :password_confirmation)
+    end
 end

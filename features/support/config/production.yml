@@ -1,0 +1,4 @@
+base_uri: "production uri"
+auth_token: "your auth token"
+email: "same@sameemail.com"
+password: "same password"

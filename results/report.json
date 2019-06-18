@@ -1,1 +1,593 @@
-[]
+[
+  {
+    "uri": "features/specifications/login.feature",
+    "id": "autenticação",
+    "keyword": "Funcionalidade",
+    "name": "Autenticação",
+    "description": "",
+    "line": 3,
+    "tags": [
+      {
+        "name": "@login",
+        "line": 2
+      }
+    ],
+    "elements": [
+      {
+        "id": "autenticação;efetuando-login",
+        "keyword": "Cenário",
+        "name": "Efetuando login",
+        "description": "",
+        "line": 5,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@login",
+            "line": 2
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/hooks/login_hook.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 79131
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Quando ",
+            "name": "realizar a requisição para logar na API",
+            "line": 6,
+            "match": {
+              "location": "features/step_definitions/login_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1758011254
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "o sistema retorna o código 200",
+            "line": 7,
+            "match": {
+              "location": "features/step_definitions/login_steps.rb:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 784587
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "a API retorna o token de acesso",
+            "line": 8,
+            "output": [
+              "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjA5NzYyNzR9.cM2J82RBRe0s2Wi8EHhowCBJODE5MeHbwM5fIqMw-Kg"
+            ],
+            "match": {
+              "location": "features/step_definitions/login_steps.rb:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1695333
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/specifications/sigunp.feature",
+    "id": "cadastro-de-usuário",
+    "keyword": "Funcionalidade",
+    "name": "Cadastro de Usuário",
+    "description": "",
+    "line": 3,
+    "tags": [
+      {
+        "name": "@signup",
+        "line": 2
+      }
+    ],
+    "elements": [
+      {
+        "id": "cadastro-de-usuário;efetuando-signup",
+        "keyword": "Cenário",
+        "name": "Efetuando signup",
+        "description": "",
+        "line": 5,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@signup",
+            "line": 2
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/hooks/signup_hook.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 755472300
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Quando ",
+            "name": "realizar a requisição para fazer signup na API",
+            "line": 6,
+            "match": {
+              "location": "features/step_definitions/signup_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1236924643
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "a API retorna o código de estado 201",
+            "line": 7,
+            "match": {
+              "location": "features/step_definitions/signup_steps.rb:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 90316
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "a API retorna o token de acesso com a mensagem \"Account created successful\"",
+            "line": 8,
+            "output": [
+              "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNTYwOTc2Mjc2fQ.tEBZTzi1u_znuFPdVMSL53b-4bJY-a4fAmmt8mhosc0",
+              "Account created successfully"
+            ],
+            "match": {
+              "location": "features/step_definitions/signup_steps.rb:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1297130
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/specifications/tool.feature",
+    "id": "manter-dados-de-ferramentas",
+    "keyword": "Funcionalidade",
+    "name": "Manter Dados de Ferramentas",
+    "description": "",
+    "line": 4,
+    "tags": [
+      {
+        "name": "@tool",
+        "line": 3
+      },
+      {
+        "name": "@login",
+        "line": 3
+      }
+    ],
+    "elements": [
+      {
+        "keyword": "Contexto",
+        "name": "Login",
+        "description": "",
+        "line": 6,
+        "type": "background",
+        "before": [
+          {
+            "match": {
+              "location": "features/hooks/login_hook.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 54076
+            }
+          },
+          {
+            "match": {
+              "location": "features/hooks/tool_hook.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 694410
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Dado ",
+            "name": "que o usuário esteja logado na API",
+            "line": 7,
+            "output": [
+              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjA5NzYyNzd9.OpHd3bfsXUKAhORqR_rXCxGO8j12hXP2NXPpAKI9YgY\"}"
+            ],
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 695891091
+            }
+          }
+        ]
+      },
+      {
+        "id": "manter-dados-de-ferramentas;cadastrar-uma-ferramenta",
+        "keyword": "Cenário",
+        "name": "Cadastrar uma Ferramenta",
+        "description": "",
+        "line": 9,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@tool",
+            "line": 3
+          },
+          {
+            "name": "@login",
+            "line": 3
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Dado ",
+            "name": "o endpoint da API para cadastrar uma Ferramenta",
+            "line": 10,
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41732
+            }
+          },
+          {
+            "keyword": "Quando ",
+            "name": "realizar uma requisição para cadastrar uma Ferramenta",
+            "line": 11,
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 75466212
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "a API irá retornar os dados do cadastro da Ferramenta",
+            "line": 12,
+            "output": [
+              "{\"id\":7,\"title\":\"consequatur\",\"link\":\"http://jacobsonreichel.com/fallon\",\"description\":\"Commodi qui ipsum. Qui reprehenderit quas. Iusto saepe sed. Qui esse voluptatem. Ut debitis est. Ve.\",\"tags\":[\"domain\",\"https\",\"webapps\",\"collaboration\",\"organization\"],\"created_by\":\"1\"}"
+            ],
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7334539
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "respondendo com o código 201",
+            "line": 13,
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70747
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Contexto",
+        "name": "Login",
+        "description": "",
+        "line": 6,
+        "type": "background",
+        "before": [
+          {
+            "match": {
+              "location": "features/hooks/login_hook.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45719
+            }
+          },
+          {
+            "match": {
+              "location": "features/hooks/tool_hook.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1051488
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Dado ",
+            "name": "que o usuário esteja logado na API",
+            "line": 7,
+            "output": [
+              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjA5NzYyNzh9.p30BcQ0iv4Yp060naPAS1taGNG4k-1F61LyacpD-MYo\"}"
+            ],
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 696159941
+            }
+          }
+        ]
+      },
+      {
+        "id": "manter-dados-de-ferramentas;listar-ferramenta-por-id",
+        "keyword": "Cenário",
+        "name": "Listar Ferramenta por id",
+        "description": "",
+        "line": 15,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@tool",
+            "line": 3
+          },
+          {
+            "name": "@login",
+            "line": 3
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Quando ",
+            "name": "realizar a requisição para consultar uma ferramenta por id",
+            "line": 16,
+            "output": [
+              "ID: 7"
+            ],
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 121091516
+            }
+          },
+          {
+            "keyword": "Dado ",
+            "name": "que a API retorna o código 200",
+            "line": 17,
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:33"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "\nexpected: 200\n     got: 404\n\n(compared using ==)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_definitions/tool_steps.rb:34:in `\"que a API retorna o código {int}\"'\nfeatures/specifications/tool.feature:17:in `Dado que a API retorna o código 200'",
+              "duration": 18273145
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "o corpo da resposta terá os dados da ferramenta",
+            "line": 18,
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:37"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Contexto",
+        "name": "Login",
+        "description": "",
+        "line": 6,
+        "type": "background",
+        "before": [
+          {
+            "match": {
+              "location": "features/hooks/login_hook.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 62964
+            }
+          },
+          {
+            "match": {
+              "location": "features/hooks/tool_hook.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1252641
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Dado ",
+            "name": "que o usuário esteja logado na API",
+            "line": 7,
+            "output": [
+              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjA5NzYyNzl9.gWw0hxXhfU6EtSFC_97uLUMmJxDkADUBsVmGlE8wbnw\"}"
+            ],
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 721972729
+            }
+          }
+        ]
+      },
+      {
+        "id": "manter-dados-de-ferramentas;apagar-ferramenta-por-id",
+        "keyword": "Cenário",
+        "name": "Apagar Ferramenta por id",
+        "description": "",
+        "line": 20,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@tool",
+            "line": 3
+          },
+          {
+            "name": "@login",
+            "line": 3
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Quando ",
+            "name": "realizar a requisição para apagar a ferramenta",
+            "line": 21,
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 52174541
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "a API retorna o código 204",
+            "line": 22,
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71371
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Contexto",
+        "name": "Login",
+        "description": "",
+        "line": 6,
+        "type": "background",
+        "before": [
+          {
+            "match": {
+              "location": "features/hooks/login_hook.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35514
+            }
+          },
+          {
+            "match": {
+              "location": "features/hooks/tool_hook.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 635200
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Dado ",
+            "name": "que o usuário esteja logado na API",
+            "line": 7,
+            "output": [
+              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjA5NzYyNzl9.gWw0hxXhfU6EtSFC_97uLUMmJxDkADUBsVmGlE8wbnw\"}"
+            ],
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 695196351
+            }
+          }
+        ]
+      },
+      {
+        "id": "manter-dados-de-ferramentas;filtrar-ferramenta-por-tag",
+        "keyword": "Cenário",
+        "name": "Filtrar Ferramenta por tag",
+        "description": "",
+        "line": 24,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@tool",
+            "line": 3
+          },
+          {
+            "name": "@login",
+            "line": 3
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Quando ",
+            "name": "realizar a requisição para consultar uma Ferramenta por tag",
+            "line": 25,
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9501366
+            }
+          },
+          {
+            "keyword": "Dado ",
+            "name": "que a API retorna o código de estado 200",
+            "line": 26,
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:53"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "\nexpected: 200\n     got: 404\n\n(compared using ==)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_definitions/tool_steps.rb:54:in `\"que a API retorna o código de estado {int}\"'\nfeatures/specifications/tool.feature:26:in `Dado que a API retorna o código de estado 200'",
+              "duration": 332300
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "o corpo da resposta terá os dados da ferramenta contendo a tag consultada",
+            "line": 27,
+            "match": {
+              "location": "features/step_definitions/tool_steps.rb:57"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
