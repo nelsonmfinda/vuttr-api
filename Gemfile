@@ -35,7 +35,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   # BDD for Ruby
-  gem 'rspec', '~> 3.8'
+  gem "rspec", "~> 3.8"
   # RSpec testing framework to Ruby on Rails
   gem "rspec-rails", "~> 3.8"
   # A simple gem to generate all files needed in a project Mobile, Web and Api for Testing Automation
@@ -52,7 +52,7 @@ group :development, :test do
   # A RuboCop extension focused on enforcing Rails best practices and coding conventions.
   gem "rubocop-rails", "~> 2.0", ">= 2.0.1"
   # Behaviour Driven Development with elegance and joy
-  gem 'cucumber', '~> 3.1', '>= 3.1.2'
+  gem "cucumber", "~> 3.1", ">= 3.1.2"
 end
 
 group :test do
@@ -63,13 +63,13 @@ group :test do
   # A library for setting up Ruby objects as test data
   gem "factory_bot_rails", "~> 5.0", ">= 5.0.1"
   # Makes http fun! Also, makes consuming restful web services dead easy
-  gem 'httparty', '~> 0.16.4'
+  gem "httparty", "~> 0.16.4"
   # Validate your Rails JSON API's JSON
-  gem 'json_matchers', '~> 0.11.0'
+  gem "json_matchers", "~> 0.11.0"
   # Automatically generate API documentation from RSpec
   gem "dox", require: false
   # Cucumber Generator and Runtime for Rails
-  gem 'cucumber-rails', require: false
+  gem "cucumber-rails", require: false
 end
 
 group :development do

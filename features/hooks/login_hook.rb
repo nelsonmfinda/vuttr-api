@@ -1,5 +1,4 @@
-Before '@login' do
-
+Before "@login" do
   body = {
     "email": CONFIG["email"],
     "password": CONFIG["password"]
@@ -8,5 +7,4 @@ Before '@login' do
   @body = JSON.generate(body)
 
   @login = Login.new(@body)
-
 end

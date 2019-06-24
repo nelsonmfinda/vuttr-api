@@ -1,5 +1,4 @@
-Before '@signup' do
-
+Before "@signup" do
   password = Faker::Internet.password(8)
 
   body = {
@@ -12,5 +11,4 @@ Before '@signup' do
   @body = JSON.generate(body)
 
   @signup = Signup.new(@body)
-
 end
