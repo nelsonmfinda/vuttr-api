@@ -8,7 +8,7 @@ Então("o sistema retorna o código {int}") do |status_code|
 end
 
 Então("a API retorna o token de acesso") do
-  $token = $response['auth_token']
+  $token = $response["auth_token"]
   puts $token
   expect($response["auth_token"]).not_to be_nil
 end
