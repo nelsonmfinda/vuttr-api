@@ -75,38 +75,6 @@ Resposta:
 
 Exemplo de um `auth_token`: _eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2Mz_
 
-Agora, acesse `localhost:3000/api/v1/tools` informando o `auth_token`, como neste exemplo:
-
-### GET /tools
-
-Requisição:
-
-```javascript
-// GET /tools
-// Content-Type: application/json
-// Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcmF0aW9uIjoxNTU4MjgxNDk5fQ.pXkSaG4tzP2-PJx0yIeNLy5nuoFoJegXu18AFeioAQE
-```
-
-Resposta:
-
-```javascript
-{
-  "id": 1,
-  "title": "json-server",
-  "link": "https://github.com/typicode/json-server",
-  "description": "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
-  "tags": [
-      "api",
-      "json",
-      "schema",
-      "node",
-      "github",
-      "rest"
-  ],
-  "created_by": "1"
- }
-```
-
 ## Rotas
 
 Todas as requisições para esta API devem conter o header `Content-Type: application/json` e um `Bearer Token`(Faça _login_ ou _signup_ para ter o seu `Bearer Token`).
