@@ -39,13 +39,13 @@ e
     bundle exec cucumber
 ```
 
-Rode o projecto em sua máquina
+Rode o projecto em sua máquina, e em seguida visite: <http://localhost:3000/api/v1>
 
 ```sh
     bundle exec rails s
 ```
 
-Em seguida, crie um novo usuário:
+Será preciso, criar um usuário:
 
 ### POST /signup
 
@@ -71,39 +71,9 @@ Resposta:
 }
 ```
 
+> ***O token gerado, tem validade de 24h desde o momento da criação.***
+
 Exemplo de um `auth_token`: _eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2Mz_
-
-Agora, acesse `localhost:3000/api/v1/tools` passando o `auth_token`, como neste exemplo:
-
-### GET /tools
-
-Requisição:
-
-```javascript
-// GET /tools
-// Content-Type: application/json
-// Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcmF0aW9uIjoxNTU4MjgxNDk5fQ.pXkSaG4tzP2-PJx0yIeNLy5nuoFoJegXu18AFeioAQE
-```
-
-Resposta:
-
-```javascript
-{
-  "id": 1,
-  "title": "json-server",
-  "link": "https://github.com/typicode/json-server",
-  "description": "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
-  "tags": [
-      "api",
-      "json",
-      "schema",
-      "node",
-      "github",
-      "rest"
-  ],
-  "created_by": "1"
- }
-```
 
 ## Rotas
 
@@ -125,6 +95,6 @@ Para filtrar as ferramentas em `GET /tools`, é possível:
 
 Link da [documentação](https://vuttrapiv1.docs.apiary.io/#) usando o padrão API Blueprint.
 
-## 4) Link API
+## 4) Link da API
 
 <http://vuttr-api.herokuapp.com/api/v1>
