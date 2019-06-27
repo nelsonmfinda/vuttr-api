@@ -33,7 +33,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 79131
+              "duration": 75175
             }
           }
         ],
@@ -47,7 +47,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1758011254
+              "duration": 670165107
             }
           },
           {
@@ -59,7 +59,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 784587
+              "duration": 564822
             }
           },
           {
@@ -67,14 +67,14 @@
             "name": "a API retorna o token de acesso",
             "line": 8,
             "output": [
-              "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjA5NzYyNzR9.cM2J82RBRe0s2Wi8EHhowCBJODE5MeHbwM5fIqMw-Kg"
+              "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1NjE3MjM0MTV9.aBV5f8m0dm2w__NBE1RDfJqEOZwbIyHRQwcl0pSeVhg"
             ],
             "match": {
               "location": "features/step_definitions/login_steps.rb:10"
             },
             "result": {
               "status": "passed",
-              "duration": 1695333
+              "duration": 1317753
             }
           }
         ]
@@ -115,7 +115,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 755472300
+              "duration": 693127871
             }
           }
         ],
@@ -129,7 +129,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1236924643
+              "duration": 1021115773
             }
           },
           {
@@ -141,7 +141,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 90316
+              "duration": 62761
             }
           },
           {
@@ -149,7 +149,7 @@
             "name": "a API retorna o token de acesso com a mensagem \"Account created successful\"",
             "line": 8,
             "output": [
-              "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNTYwOTc2Mjc2fQ.tEBZTzi1u_znuFPdVMSL53b-4bJY-a4fAmmt8mhosc0",
+              "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0OSwiZXhwIjoxNTYxNzIzNDE3fQ.P70zDmVl6oJRrUNi-fsfEssk1zM-UiAUQF5XkVMsgRw",
               "Account created successfully"
             ],
             "match": {
@@ -157,7 +157,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1297130
+              "duration": 801243
             }
           }
         ]
@@ -195,7 +195,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 54076
+              "duration": 32168
             }
           },
           {
@@ -204,7 +204,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 694410
+              "duration": 730998
             }
           }
         ],
@@ -214,14 +214,14 @@
             "name": "que o usuário esteja logado na API",
             "line": 7,
             "output": [
-              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjA5NzYyNzd9.OpHd3bfsXUKAhORqR_rXCxGO8j12hXP2NXPpAKI9YgY\"}"
+              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1NjE3MjM0MTd9.nSu3zhrQeyZnr3IbM6PhaD6CxgEt8RthqQ49zhqsHgY\"}"
             ],
             "match": {
               "location": "features/step_definitions/tool_steps.rb:1"
             },
             "result": {
               "status": "passed",
-              "duration": 695891091
+              "duration": 647776805
             }
           }
         ]
@@ -253,7 +253,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 41732
+              "duration": 27397
             }
           },
           {
@@ -265,7 +265,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 75466212
+              "duration": 43720957
             }
           },
           {
@@ -273,14 +273,14 @@
             "name": "a API irá retornar os dados do cadastro da Ferramenta",
             "line": 12,
             "output": [
-              "{\"id\":7,\"title\":\"consequatur\",\"link\":\"http://jacobsonreichel.com/fallon\",\"description\":\"Commodi qui ipsum. Qui reprehenderit quas. Iusto saepe sed. Qui esse voluptatem. Ut debitis est. Ve.\",\"tags\":[\"domain\",\"https\",\"webapps\",\"collaboration\",\"organization\"],\"created_by\":\"1\"}"
+              "{\"id\":49,\"title\":\"qui\",\"link\":\"http://satterfieldconn.net/jennette.bogisich\",\"description\":\"Voluptas consequuntur quis. Eius corporis laborum. Iure repellat illo. Consequuntur ad odit. Quo oc.\",\"tags\":[\"webapps\",\"node\",\"developer\",\"https\",\"collaboration\"],\"created_by\":\"2\"}"
             ],
             "match": {
               "location": "features/step_definitions/tool_steps.rb:16"
             },
             "result": {
               "status": "passed",
-              "duration": 7334539
+              "duration": 6994999
             }
           },
           {
@@ -292,7 +292,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 70747
+              "duration": 57244
             }
           }
         ]
@@ -310,7 +310,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 45719
+              "duration": 34420
             }
           },
           {
@@ -319,7 +319,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1051488
+              "duration": 780211
             }
           }
         ],
@@ -329,14 +329,14 @@
             "name": "que o usuário esteja logado na API",
             "line": 7,
             "output": [
-              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjA5NzYyNzh9.p30BcQ0iv4Yp060naPAS1taGNG4k-1F61LyacpD-MYo\"}"
+              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1NjE3MjM0MTh9.ddl-tpIczt5CJAl0XWRe-QBuPTOCFBk0xpM-zQTeQYo\"}"
             ],
             "match": {
               "location": "features/step_definitions/tool_steps.rb:1"
             },
             "result": {
               "status": "passed",
-              "duration": 696159941
+              "duration": 649543313
             }
           }
         ]
@@ -364,14 +364,14 @@
             "name": "realizar a requisição para consultar uma ferramenta por id",
             "line": 16,
             "output": [
-              "ID: 7"
+              "ID: 49"
             ],
             "match": {
               "location": "features/step_definitions/tool_steps.rb:28"
             },
             "result": {
               "status": "passed",
-              "duration": 121091516
+              "duration": 7585912
             }
           },
           {
@@ -382,9 +382,8 @@
               "location": "features/step_definitions/tool_steps.rb:33"
             },
             "result": {
-              "status": "failed",
-              "error_message": "\nexpected: 200\n     got: 404\n\n(compared using ==)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_definitions/tool_steps.rb:34:in `\"que a API retorna o código {int}\"'\nfeatures/specifications/tool.feature:17:in `Dado que a API retorna o código 200'",
-              "duration": 18273145
+              "status": "passed",
+              "duration": 74722
             }
           },
           {
@@ -395,7 +394,8 @@
               "location": "features/step_definitions/tool_steps.rb:37"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 108245
             }
           }
         ]
@@ -413,7 +413,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 62964
+              "duration": 64776
             }
           },
           {
@@ -422,7 +422,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1252641
+              "duration": 1177304
             }
           }
         ],
@@ -432,14 +432,14 @@
             "name": "que o usuário esteja logado na API",
             "line": 7,
             "output": [
-              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjA5NzYyNzl9.gWw0hxXhfU6EtSFC_97uLUMmJxDkADUBsVmGlE8wbnw\"}"
+              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1NjE3MjM0MTl9.9HYhWE9KaDHDUsIv_ASLtf72T-K_7BtULMLb6WWpSEY\"}"
             ],
             "match": {
               "location": "features/step_definitions/tool_steps.rb:1"
             },
             "result": {
               "status": "passed",
-              "duration": 721972729
+              "duration": 652315862
             }
           }
         ]
@@ -471,7 +471,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 52174541
+              "duration": 81623578
             }
           },
           {
@@ -483,7 +483,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 71371
+              "duration": 64910
             }
           }
         ]
@@ -501,7 +501,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 35514
+              "duration": 48160
             }
           },
           {
@@ -510,7 +510,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 635200
+              "duration": 1327538
             }
           }
         ],
@@ -520,14 +520,14 @@
             "name": "que o usuário esteja logado na API",
             "line": 7,
             "output": [
-              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjA5NzYyNzl9.gWw0hxXhfU6EtSFC_97uLUMmJxDkADUBsVmGlE8wbnw\"}"
+              "{\"auth_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1NjE3MjM0MjB9.gbT7HGj1uK4auEzFh12cMwsLH7XpANDdEAAZa7Rufss\"}"
             ],
             "match": {
               "location": "features/step_definitions/tool_steps.rb:1"
             },
             "result": {
               "status": "passed",
-              "duration": 695196351
+              "duration": 648055036
             }
           }
         ]
@@ -554,36 +554,28 @@
             "keyword": "Quando ",
             "name": "realizar a requisição para consultar uma Ferramenta por tag",
             "line": 25,
+            "output": [
+              "Tag: collaboration"
+            ],
             "match": {
               "location": "features/step_definitions/tool_steps.rb:49"
             },
             "result": {
               "status": "passed",
-              "duration": 9501366
-            }
-          },
-          {
-            "keyword": "Dado ",
-            "name": "que a API retorna o código de estado 200",
-            "line": 26,
-            "match": {
-              "location": "features/step_definitions/tool_steps.rb:53"
-            },
-            "result": {
-              "status": "failed",
-              "error_message": "\nexpected: 200\n     got: 404\n\n(compared using ==)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_definitions/tool_steps.rb:54:in `\"que a API retorna o código de estado {int}\"'\nfeatures/specifications/tool.feature:26:in `Dado que a API retorna o código de estado 200'",
-              "duration": 332300
+              "duration": 10739356
             }
           },
           {
             "keyword": "Então ",
-            "name": "o corpo da resposta terá os dados da ferramenta contendo a tag consultada",
-            "line": 27,
+            "name": "respondendo com o código de estado 200",
+            "line": 26,
             "match": {
-              "location": "features/step_definitions/tool_steps.rb:57"
+              "location": "features/step_definitions/tool_steps.rb:55"
             },
             "result": {
-              "status": "skipped"
+              "status": "failed",
+              "error_message": "\nexpected: 200\n     got: 404\n\n(compared using ==)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_definitions/tool_steps.rb:56:in `\"respondendo com o código de estado {int}\"'\nfeatures/specifications/tool.feature:26:in `Então respondendo com o código de estado 200'",
+              "duration": 13318886
             }
           }
         ]
