@@ -1,13 +1,13 @@
 class Signup
   include HTTParty
-  base_uri CONFIG['base_uri']
+  base_uri CONFIG["base_uri"]
 
   def initialize(body)
     @options = {
-      :headers => {
+      headers: {
         "Content-Type" => "application/json"
       },
-      :body => body
+      body: body
     }
   end
 

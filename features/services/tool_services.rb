@@ -1,29 +1,28 @@
 class Tool
   include HTTParty
-  base_uri CONFIG['base_uri']
+  base_uri CONFIG["base_uri"]
 
   def initialize (body, token)
-    @options = {:headers => {
+    @options = { headers: {
       "Content-Type" => "application/json",
       "Authorization" => token
-    }, :body => body
+    }, body: body
   }
   end
 
   def post_tool
-    self.class.post("/tools",@options)
+    self.class.post("/tools", @options)
   end
 
   def get_tool(id)
-    self.class.get("/tool/#{id}",@options)
+    self.class.get("/tools/#{id}", @options)
   end
 
   def delete_tool(id)
-    self.class.delete("/tools/#{id}",@options)
+    self.class.delete("/tools/#{id}", @options)
   end
 
   def find_by_tag(tag)
-    self.class.get("/tools/tag?=#{tag}",@options)
+    self.class.get("/tools?tag=#{tag}", @options)
   end
-
 end
