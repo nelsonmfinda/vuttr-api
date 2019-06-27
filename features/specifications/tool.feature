@@ -23,5 +23,4 @@ Cenário: Apagar Ferramenta por id
 
 Cenário: Filtrar Ferramenta por tag
     Quando realizar a requisição para consultar uma Ferramenta por tag
-    Dado que a API retorna o código de estado 200
-    Então o corpo da resposta terá os dados da ferramenta contendo a tag consultada
+    Então respondendo com o código de estado 200
