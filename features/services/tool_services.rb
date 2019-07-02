@@ -15,7 +15,7 @@ class Tool
   end
 
   def get_tool(id)
-    self.class.get("/tools/#{id}", @options)
+    self.class.get("/tool/#{id}", @options)
   end
 
   def delete_tool(id)
