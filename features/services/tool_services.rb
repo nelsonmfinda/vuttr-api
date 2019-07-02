@@ -23,6 +23,6 @@ class Tool
   end
 
   def find_by_tag(tag)
-    self.class.get("/tools/tag?=#{tag}", @options)
+    self.class.get("/tools?tag=#{tag}", @options)
   end
 end

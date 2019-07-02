@@ -22,3 +22,9 @@ node_modules
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore support config file
+/features/support/config/development.yml
+
+# Ignore local test results
+results/report.json

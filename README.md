@@ -71,9 +71,9 @@ Resposta:
 }
 ```
 
-> ***O token gerado, tem validade de 24h desde o momento da criação.***
+Agora renomeie o arquivo ```features/support/config/development.example.yml``` para ```features/support/config/development.yml```, e edite informando o ```email``` e ```password``` cadastrado.
 
-Exemplo de um `auth_token`: _eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2Mz_
+> ***O token gerado, tem validade de 24h desde o momento da criação.***
 
 ## Rotas
 

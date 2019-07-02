@@ -47,14 +47,11 @@ Então("a API retorna o código {int}") do |status_code|
 end
 
 Quando("realizar a requisição para consultar uma Ferramenta por tag") do
+  $tag = $tag.join("")
+  puts "Tag: #{$tag}"
   $response = @tool.find_by_tag($tag)
 end
 
-Dado("que a API retorna o código de estado {int}") do |status_code|
+Então("respondendo com o código de estado {int}") do |status_code|
   expect($response.code).to eq(status_code)
-end
-
-Então("o corpo da resposta terá os dados da ferramenta contendo a tag consultada") do
-  expect(JSON.parse($response.body)).to include("id", "title", "link", "description", "tags", "created_by")
-  expect($response["tags"]).to include($tag)
 end

@@ -1,6 +1,5 @@
 class Login
   include HTTParty
-
   base_uri CONFIG["base_uri"]
 
   def initialize(body)
