@@ -1,4 +1,4 @@
 base_uri: "http://vuttr-api.herokuapp.com/api/v1"
 auth_token: "your auth token"
-email: "same@sameemail.com"
-password: "same password"
+email: "admin@vuttrapi.com"
+password: "123456"
