@@ -54,9 +54,9 @@ jobs: # a collection of steps
             bundle exec rspec
 
       - run:
-          name: Run Cucumber
+          name: Run Rubocop
           command: |
-            bundle exec cucumber -p test
+            bundle exec rubocop
 
       - run:
           name: Deploy Master to Heroku
