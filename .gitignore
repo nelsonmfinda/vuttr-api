@@ -27,4 +27,4 @@ node_modules
 /features/support/config/development.yml
 
 # Ignore local test results
-results/report.json
+coverage

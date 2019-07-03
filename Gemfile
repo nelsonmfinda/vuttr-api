@@ -65,7 +65,7 @@ group :test do
   # Automatically generate API documentation from RSpec
   gem "dox", require: false
   # A Ruby implementation of the Coveralls API.
-  gem 'coveralls', '~> 0.8.23', require: false
+  gem 'coveralls', '~> 0.8.21', require: false
 end
 
 group :development do

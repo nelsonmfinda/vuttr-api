@@ -305,7 +305,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
-  coveralls (~> 0.8.23)
+  coveralls (~> 0.8.21)
   database_cleaner
   dox
   factory_bot_rails (~> 5.0, >= 5.0.1)
