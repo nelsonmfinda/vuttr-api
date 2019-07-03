@@ -328,6 +328,7 @@ DEPENDENCIES
   rubocop-rspec (~> 1.33)
   rubygene (~> 0.4.0)
   shoulda-matchers
+  simplecov (~> 0.16.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data

@@ -1,2 +1,1 @@
 service_name:circleci
-repo_secret_token=mmZWVdEcl7TO559Dy2GRc8hrexTG1rcKw bundle exec rspec spec
