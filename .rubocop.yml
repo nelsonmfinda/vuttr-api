@@ -79,7 +79,6 @@ Layout/IndentFirstArgument:
 # extra level of indentation.
 Layout/IndentationConsistency:
   Enabled: true
-  EnforcedStyle: rails
 
 # Two spaces, no tabs (for indentation).
 Layout/IndentationWidth:
