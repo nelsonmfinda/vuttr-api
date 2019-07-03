@@ -4,10 +4,7 @@ require 'coveralls'
 require "spec_helper"
 require "dox"
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter([
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-])
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start
 
 Coveralls.wear!
