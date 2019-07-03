@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/web/Dockerfile
+    image: nginx:alpine
+    volumes:
+      - ./:/usr/share/nginx/html
+    networks:
+      - backend
+    depends_on:
+      - app
+    ports:
+      - "3000:80"
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    volumes:
+      - /var/www/vuttr-api
+    networks:
+      - backend
+    environment:
+      DATABASE_USER: /run/secrets/postgres_user
+      DATABASE_PASSWORD: /run/secrets/postgres_password
+      DATABASE_URL: postgres://$DATABASE_USER:vuttrapi@db:5432/vuttrapi_production
+    depends_on:
+      - db
+    ports:
+      - "3000"
+  db:
+    image: postgres:9.6
+    networks:
+      - backend
+    environment:
+      POSTGRES_USER: /run/secrets/postgres_user
+      POSTGRES_PASSWORD: /run/secrets/postgres_password
+    ports:
+      - "5432"
+
+networks:
+  backend:
+    driver: bridge

@@ -89,6 +89,8 @@ gem 'coveralls', '~> 0.8.21', require: false
 # Code coverage for Ruby 1.9+ with a powerful configuration
 # library and automatic merging of coverage across test suites
 gem 'simplecov', '~> 0.16.1'
+# Autoload dotenv in Rails.
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.3'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

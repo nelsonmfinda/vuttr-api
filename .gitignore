@@ -28,3 +28,6 @@ node_modules
 
 # Ignore local test results
 coverage
+
+# Ignore .env file
+.env
