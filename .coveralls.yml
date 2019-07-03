@@ -1,0 +1,2 @@
+service_name:circleci
+COVERALLS_REPO_TOKEN=mmZWVdEcl7TO559Dy2GRc8hrexTG1rcKw bundle exec rspec spec

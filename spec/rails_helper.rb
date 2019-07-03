@@ -1,6 +1,9 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'coveralls'
 require "spec_helper"
 require "dox"
+
+Coveralls.wear!
 
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../config/environment", __FILE__)
