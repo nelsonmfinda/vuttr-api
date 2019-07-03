@@ -64,6 +64,8 @@ group :test do
   gem "json_matchers", "~> 0.11.0"
   # Automatically generate API documentation from RSpec
   gem "dox", require: false
+  # A Ruby implementation of the Coveralls API.
+  gem 'coveralls', '~> 0.8.23', require: false
 end
 
 group :development do

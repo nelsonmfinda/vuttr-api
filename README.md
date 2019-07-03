@@ -2,6 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/nelsonmfinda/vuttr-api.svg?style=svg)](https://circleci.com/gh/nelsonmfinda/vuttr-api)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d7d52a50d1e28dcb84e8/maintainability)](https://codeclimate.com/github/nelsonmfinda/vuttr-api/maintainability)
+[![security](https://hakiri.io/github/nelsonmfinda/vuttr-api/master.svg)](https://hakiri.io/github/nelsonmfinda/vuttr-api/master)
+[![Coverage Status](https://coveralls.io/repos/github/nelsonmfinda/vuttr-api/badge.svg?branch=master)](https://coveralls.io/github/nelsonmfinda/vuttr-api?branch=master)
 
 API para a aplicação VUTTR (Very Useful Tools to Remember). Uma simples API para gerenciar ferramentas. [Documentação da API](https://vuttrapiv1.docs.apiary.io/)
 
