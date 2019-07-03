@@ -1,1 +1,2 @@
 service_name:circleci
+repo_token= echo $COVERALLS_REPO_TOKEN bundle exec rspec spec
