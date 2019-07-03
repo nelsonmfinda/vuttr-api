@@ -64,11 +64,6 @@ group :test do
   gem "json_matchers", "~> 0.11.0"
   # Automatically generate API documentation from RSpec
   gem "dox", require: false
-  # A Ruby implementation of the Coveralls API.
-  gem 'coveralls', '~> 0.8.21', require: false
-  # Code coverage for Ruby 1.9+ with a powerful configuration
-  # library and automatic merging of coverage across test suites
-  gem 'simplecov', '~> 0.16.1'
 end
 
 group :development do
@@ -89,6 +84,11 @@ gem "active_model_serializers", "~> 0.10.9"
 # will_paginate provides a simple API for performing paginated queries with Active Record,
 # DataMapper and Sequel, and includes helpers for rendering pagination links
 gem "will_paginate", "~> 3.1", ">= 3.1.7"
+# A Ruby implementation of the Coveralls API.
+gem 'coveralls', '~> 0.8.21', require: false
+# Code coverage for Ruby 1.9+ with a powerful configuration
+# library and automatic merging of coverage across test suites
+gem 'simplecov', '~> 0.16.1'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
