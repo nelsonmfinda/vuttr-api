@@ -65,7 +65,10 @@ group :test do
   # Automatically generate API documentation from RSpec
   gem "dox", require: false
   # A Ruby implementation of the Coveralls API.
-  gem 'coveralls', '~> 0.8.23', require: false
+  gem 'coveralls', '~> 0.8.21', require: false
+  # Code coverage for Ruby 1.9+ with a powerful configuration
+  # library and automatic merging of coverage across test suites
+  gem 'simplecov', '~> 0.16.1'
 end
 
 group :development do

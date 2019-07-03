@@ -1,7 +1,11 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'simplecov'
 require 'coveralls'
 require "spec_helper"
 require "dox"
+
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start
 
 Coveralls.wear!
 
